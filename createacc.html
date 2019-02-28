@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="../css/myStyles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="formCnt">
+ <h1 align="center">Create Account Form</h1>
+ 
+<form method="post" action="">
+<table cellpadding="5px" style="margin-left: 50px;">
+  <tr>
+   <td>Choose Account Type:</td>
+   <td>
+    <select name="acctype">
+     <option value="savings" >Savings</option> 
+     <option value="current">Current</option>
+     <option value="fd" >FD</option>
+     <option value="rd" >RD</option>
+     <option value="loan">Loan</option>
+     
+    </select>
+   </td>
+  </tr> 
+  
+  <tr>
+   <td>Opening Amount:</td>
+   <td><input type="text" name="amount" size="20" ></td>
+  </tr>
+  <tr>
+   <td>Opening Date:</td>
+   <td><input type="date" name="amount" size="20" ></td>
+  </tr>
+  <tr>
+   <td>
+    <input type="submit" value="create account" class="btnClass" name="createAccount">
+   </td>
+  </tr>
+</table>
+</form>
+</div>
+</body>
+</html>
