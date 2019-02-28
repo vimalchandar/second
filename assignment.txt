@@ -1,0 +1,257 @@
+import java.util.Scanner;
+
+import javax.lang.model.element.Element;
+
+public class Lab3_1 {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		String str=sc.nextLine();
+		System.out.println("Choose an option\n1.Add the string to itself\n2.Replace the odd position\n3.Remove the duplicate\n4.Convert to uppercase");
+		int i=sc.nextInt();
+		Lab3_1 l=new Lab3_1();
+		
+		l.options(str, i);
+		sc.close();
+	}
+	void options(String str,int i)
+	{
+		String s=str,s1="";
+		if(i==1)
+		{	s=s.concat(str);
+			System.out.println(s);
+		}
+		else if(i==2)
+		{
+			for (int i1 = 0; i1 <s.length(); i1++){
+				if(i1%2==0)
+					s1=s1+"#";
+				else 
+					s1=s1+str.charAt(i1);
+				
+				
+			}
+			System.out.println(s1);
+		}
+		else if(i==3)
+		{
+			for (int j = 0; j < s.length(); j++) {
+				char c=s.charAt(j);
+				if(s.indexOf(c)==j)
+					s1+=c;
+			}
+			System.out.println(s1);
+		}
+		else if (i==4) {
+			for (int k = 0; k < s.length(); k++) {
+				if(k%2==0)
+					s1=s1+str.toUpperCase().charAt(k);
+				else 
+					s1=s1+str.charAt(k);
+				
+			}
+			System.out.println(s1);
+		}
+		}
+	}
+	
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+
+public class Lab3_3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LocalDate start=LocalDate.now();
+		System.out.println("present date: "+start);
+		LocalDate end=LocalDate.of(1998, Month.JANUARY, 10);
+		System.out.println("Comparing date "+end);
+		Period period=start.until(end);
+		System.out.println("Days "+period.getDays());
+		System.out.println("Months "+period.getMonths());
+		System.out.println("years "+period.getYears());
+
+			}
+
+	}
+
+
+
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Scanner;
+
+public class Lab3_6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		ZoneId in=ZoneId.of("Asia/Kolkata");
+		ZonedDateTime zone1=ZonedDateTime.of(LocalDateTime.of(2019, Month.JANUARY, 13, 17, 48), in);
+		System.out.println("In india central time zone: "+zone1);
+		ZoneId timenow=ZoneId.of(sc.nextLine());
+		ZonedDateTime zone2=zone1.withZoneSameInstant(timenow);
+		System.out.println("In Tokyo central time zone: "+zone2);
+
+	}
+
+}
+
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+
+public class lab3_7a {
+static int aga,a1;
+void calculateAge()
+{
+	LocalDate a1=LocalDate.of(1998, Month.JANUARY, 10);
+	LocalDate a=LocalDate.now();
+	System.out.println(a1);
+	System.out.println(a);
+	Period p=a1.until(a);
+	System.out.println("Age: "+p.getYears());
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		lab3_7a n=new lab3_7a();
+		n.calculateAge();
+
+	}
+
+}
+
+
+public class Lab3_7b {
+
+		static int aga,a1;
+		private String firstname;
+		private String lastname;
+		void calculateAge()
+		{
+			LocalDate a1=LocalDate.of(1998, Month.JANUARY, 10);
+			LocalDate a=LocalDate.now();
+			System.out.println(a1);
+			System.out.println(a);
+			Period p=a1.until(a);
+			System.out.println("Age: "+p.getYears());
+			}
+		void getfullname(String firstname,String lastname)
+		{
+			this.firstname=firstname;
+			this.lastname=lastname;
+			System.out.println(firstname+" "+lastname);
+			
+		}
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			Lab3_7b n=new Lab3_7b();
+			n.calculateAge();
+			n.getfullname("Keerthanadevi", "T");		}
+}
+
+
+
+lab 4
+public class AccountLab4_2 {
+	void withdraw() throws Exception{
+		Scanner s=new Scanner(System.in);
+		System.out.println("enter age:");
+		int age=s.nextInt();
+		if(age<15)
+		{
+			throw new Exception("u r a child");
+		}
+		System.out.print("enter minimum balance:");
+		int b=s.nextInt();
+		System.out.print("enter minimum balance:"+b);
+		System.out.print("enter amount to withdraw:");
+		int wt=s.nextInt();
+		System.out.print(":"+wt);
+		if(b>10000)
+		{
+			System.out.println("Withdraw:"+(b-wt));
+		}
+		else {
+			System.out.print("insufficient balance");
+		}
+	}
+	void withdraw1()
+	{
+		double overdraftlimit=100;
+		System.out.print("overdraftlimit:"+overdraftlimit+"\n");
+	}
+}
+
+
+
+
+public class Currentlab4_2 extends AccountLab4_2{
+double overdraftlimit;
+@Override
+	void withdraw() throws Exception {
+		// TODO Auto-generated method stub
+	Scanner s=new Scanner(System.in);
+	System.out.print("withdraw amount:");
+	int withdraw=s.nextInt();
+	System.out.print("Withdraw: "+withdraw+"\n");
+	if(overdraftlimit==withdraw)
+	{
+		System.out.println(true+"\n");
+	}
+	else {
+		System.out.print(false+"\n");
+	}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+try {
+	AccountLab4_2 obj=new Currentlab4_2();
+	obj.withdraw();
+} catch (Exception e) {
+	// TODO: handle exception
+	System.out.print("u r not");
+}
+	}
+
+}
+
+
+public class Savinglab4_2 extends AccountLab4_2{
+	final double minimumBalance=1000;
+	@Override
+	void withdraw() throws Exception {
+		// TODO Auto-generated method stub
+		double balance=15000;
+		Scanner s=new Scanner(System.in);
+		System.out.print("minimumbalance: "+minimumBalance+"\n"+"enter withdraw amount: ");
+		int wt=s.nextInt();
+		System.out.print("withdraw:"+wt);
+		if((balance-wt)>minimumBalance)
+		{
+			double minimumbalance=balance-wt;
+			System.out.println("\nfinal withdraw:"+(balance-wt));
+		}
+		else {
+			System.out.println("insufficient balance");
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try{
+			AccountLab4_2 obj=new Savinglab4_2();
+			obj.withdraw();
+		}catch(Exception e)
+		{
+			System.out.print("u r not ");
+		}
+
+	}
+
+}

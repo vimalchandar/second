@@ -1,0 +1,7668 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Tue Jan 29 10:52:20 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect Trg428/training428@//10.219.34.3:1521/orcl
+Connected.
+SQL> Designation Master
+SP2-0734: unknown command beginning "Designatio..." - rest of line ignored.
+SQL> CREATE TABLE designation_master(
+  2  Design_Code NUMBER(3) PRIMARY KEY,
+  3  Design_Name VARCHAR2(50) UNIQUE);
+CREATE TABLE designation_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO designation_master VALUES(101,'HOD');
+INSERT INTO designation_master VALUES(101,'HOD')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(102,'Professor');
+INSERT INTO designation_master VALUES(102,'Professor')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(103,'Reader');
+INSERT INTO designation_master VALUES(103,'Reader')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(104,'Sr.Lecturer');
+INSERT INTO designation_master VALUES(104,'Sr.Lecturer')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(105,'Lecturer');
+INSERT INTO designation_master VALUES(105,'Lecturer')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(106,'Director');
+INSERT INTO designation_master VALUES(106,'Director')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL>
+SQL> Department Master
+SP2-0734: unknown command beginning "Department..." - rest of line ignored.
+SQL> CREATE TABLE department_master(
+  2  Dept_code NUMBER(2) PRIMARY KEY,
+  3  Dept_Name VARCHAR2(50) UNIQUE);
+CREATE TABLE department_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO department_master VALUES(10,'Computer Science');
+INSERT INTO department_master VALUES(10,'Computer Science')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(20,'Electricals');
+INSERT INTO department_master VALUES(20,'Electricals')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(30,'Electronics');
+INSERT INTO department_master VALUES(30,'Electronics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(40,'Mechanics');
+INSERT INTO department_master VALUES(40,'Mechanics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(50,'Robotics');
+INSERT INTO department_master VALUES(50,'Robotics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL>
+SQL> Student Master
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE student_master(
+  2  Student_Code NUMBER(6) PRIMARY KEY,
+  3  Student_Name VARCHAR2(50) NOT NULL,
+  4  Dept_Code NUMBER(2) REFERENCES department_master(dept_code),
+  5  Student_Dob DATE,
+  6  Student_Address VARCHAR2(240));
+CREATE TABLE student_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO student_master VALUES(1001,'Amit',10,'11-Jan-80','chennai');
+INSERT INTO student_master VALUES(1001,'Amit',10,'11-Jan-80','chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1002,'Ravi',10,'1-Nov-81','New Delhi');
+INSERT INTO student_master VALUES(1002,'Ravi',10,'1-Nov-81','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1003,'Ajay',20,'13-Jan-82',null);
+INSERT INTO student_master VALUES(1003,'Ajay',20,'13-Jan-82',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1004,'Raj',30,'14-Jan-79','Mumbai');
+INSERT INTO student_master VALUES(1004,'Raj',30,'14-Jan-79','Mumbai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1005,'Arvind',40,'15-Jan-83','Bangalore');
+INSERT INTO student_master VALUES(1005,'Arvind',40,'15-Jan-83','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1006,'Rahul',50,'16-Jan-81','Delhi');
+INSERT INTO student_master VALUES(1006,'Rahul',50,'16-Jan-81','Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1007,'Mehul',20,'17-Jan-82','Chennai');
+INSERT INTO student_master VALUES(1007,'Mehul',20,'17-Jan-82','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1008,'Dev',10,'11-Mar-81','Bangalore');
+INSERT INTO student_master VALUES(1008,'Dev',10,'11-Mar-81','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1009,'Vijay',30,'19-Jan-80','Bangalore');
+INSERT INTO student_master VALUES(1009,'Vijay',30,'19-Jan-80','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1010,'Rajat',40,'20-Jan-80','Bangalore');
+INSERT INTO student_master VALUES(1010,'Rajat',40,'20-Jan-80','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1011,'Sunder',50,'21-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1011,'Sunder',50,'21-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1012,'Rajesh', 30,'22-Jan-80',null);
+INSERT INTO student_master VALUES(1012,'Rajesh', 30,'22-Jan-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1013,'Anil',20,'23-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1013,'Anil',20,'23-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1014,'Sunil',10,'15-Feb-85',null);
+INSERT INTO student_master VALUES(1014,'Sunil',10,'15-Feb-85',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1015,'Kapil',40,'18-Mar-81','Mumbai');
+INSERT INTO student_master VALUES(1015,'Kapil',40,'18-Mar-81','Mumbai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1016,'Ashok',40,'26-Nov-80',null);
+INSERT INTO student_master VALUES(1016,'Ashok',40,'26-Nov-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1017,'Ramesh',30,'27-Dec-80',null);
+INSERT INTO student_master VALUES(1017,'Ramesh',30,'27-Dec-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1018,'Amit Raj',50,'28-Sep-80','New Delhi');
+INSERT INTO student_master VALUES(1018,'Amit Raj',50,'28-Sep-80','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1019,'Ravi Raj',50,'29-May-81','New Delhi');
+INSERT INTO student_master VALUES(1019,'Ravi Raj',50,'29-May-81','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1020,'Amrit',10,'11-Nov-80',null);
+INSERT INTO student_master VALUES(1020,'Amrit',10,'11-Nov-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1021,'Sumit',20,'1-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1021,'Sumit',20,'1-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> Student Marks
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE Student_Marks(
+  2  Student_Code NUMBER (6) REFERENCES student_master(student_code),
+  3  Student_Year NUMBER not null,
+  4  Subject1 NUMBER (3),
+  5  Subject2 NUMBER (3),
+  6  Subject3 NUMBER (3));
+CREATE TABLE Student_Marks(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO student_marks VALUES(1001,2010,55,45,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1002,2010,66,74,88);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1003,2010,87,54,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1004,2010,65,64,90);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1005,2010,78,88,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1006,2010,65,86,54);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1007,2010,67,79,49);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1008,2010,72,55,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1009,2010,71,59,58);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1010,2010,68,44,92);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1011,2010,89,96,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1012,2010,78,56,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1013,2010,75,58,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1014,2010,73,74,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1015,2010,66,45,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1016,2010,68,78,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1017,2010,69,44,52);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1018,2010,65,78,56);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1019,2010,78,58,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1020,2010,45,55,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1021,2010,78,79,78);
+
+1 row created.
+
+SQL>
+SQL> Data to be repeated for 2 more years
+SP2-0734: unknown command beginning "Data to be..." - rest of line ignored.
+SQL>
+SQL> Staff Master
+SP2-0734: unknown command beginning "Staff Mast..." - rest of line ignored.
+SQL> CREATE TABLE staff_master(
+  2  Staff_Code number(8) PRIMARY KEY,
+  3  Staff_Name varchar2(50) NOT NULL,
+  4  Design_Code REFERENCES designation_master(design_code),
+  5  Dept_Code references department_master(dept_code),
+  6  Staff_dob DATE,
+  7  Hiredate DATE,
+  8  Mgr_code NUMBER(8),
+  9  Staff_sal NUMBER (10,2),
+ 10  Staff_address VARCHAR2(240));
+CREATE TABLE staff_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100001,'Arvind',102,30,'15-Jan-80','15-Jan-03',100006,17000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100002,'Shyam',102,20,'18-Feb-80','17-Feb-02',100007,20000, 'Chennai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100003,'Mohan',102,10,'23-Mar-80','19-Jan-02',100006,24000,'Mumbai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100004,'Anil',102,20,'22-Apr-77','11-Mar-01',100006,20000,'Hyderabad');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100005,'John',106,10,'22-May-76','21-Jan-01',100007,32000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100006,'Allen',103,30,'22-Jan-80','23-Apr-01',100005,42000,'Chennai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL>
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100007,'Smith',103,20,'19-Jul-73','12-Mar-02',100005,62000,'Mumbai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100008,'Raviraj',102,40,'17-Jun-80','11-Jan-03',100006,18000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100009,'Rahul',102,20,'16-Jan-78','11-Dec-03',100006,22000,'Hyderabad');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100010,'Ram',103,30,'17-Jan-79','17-Jan-02',100007,32000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL>
+SQL> Book Master
+SP2-0734: unknown command beginning "Book Maste..." - rest of line ignored.
+SQL> CREATE TABLE book_master(
+  2  Book_code NUMBER(10) PRIMARY KEY,
+  3  Book_name VARCHAR2(50) NOT NULL,
+  4  Book_pub_year NUMBER,
+  5  Book_pub_author VARCHAR2 (50) NOT NULL);
+CREATE TABLE book_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL>
+SQL> INSERT INTO book_master VALUES(10000001,'Let Us C++',2000, 'Yashavant Kanetkar');
+INSERT INTO book_master VALUES(10000001,'Let Us C++',2000, 'Yashavant Kanetkar')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000002,'Mastering VC++',2005,'P.J Allen');
+INSERT INTO book_master VALUES(10000002,'Mastering VC++',2005,'P.J Allen')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000003,'JAVA Complete Reference',2004,'H.Schild');
+INSERT INTO book_master VALUES(10000003,'JAVA Complete Reference',2004,'H.Schild')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000004,'J2EE Complete Reference',2000,'H. Schild');
+INSERT INTO book_master VALUES(10000004,'J2EE Complete Reference',2000,'H. Schild')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000005,'Relational DBMS',2000,'B.C. Desai');
+INSERT INTO book_master VALUES(10000005,'Relational DBMS',2000,'B.C. Desai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000006,'Let Us C',2000, 'Yashavant Kanetkar');
+INSERT INTO book_master VALUES(10000006,'Let Us C',2000, 'Yashavant Kanetkar')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000007,'Intoduction To Algorithams',2001,'Cormen');
+INSERT INTO book_master VALUES(10000007,'Intoduction To Algorithams',2001,'Cormen')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000008,'Computer Networks',2000,'Tanenbaum');
+INSERT INTO book_master VALUES(10000008,'Computer Networks',2000,'Tanenbaum')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000009,'Introduction to O/S',2001,'Millan');
+INSERT INTO book_master VALUES(10000009,'Introduction to O/S',2001,'Millan')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> Book Transaction
+SP2-0734: unknown command beginning "Book Trans..." - rest of line ignored.
+SQL> CREATE TABLE book_transaction(
+  2  Book_code NUMBER(10) REFERENCES book_master(Book_code),
+  3  Student_code NUMBER(6) REFERENCES student_master(student_code),
+  4  Staff_code number(8) REFERENCES staff_master(staff_code),
+  5  Book_issue_Date date not null,
+  6  Book_expected_return_date date not null,
+  7  Book_actual_return_date date);
+CREATE TABLE book_transaction(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000006,1012,NULL,'02-Feb-2011','09-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000008,NULL,100006,'10-Mar-2011','17-Mar-2011','15-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000009,NULL,100010,'01-Apr-2011','08-Apr-2011','10-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000004,1015,NULL,'12-Feb-2011','19-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000005,NULL,100007,'14-Mar-2011','21-Mar-2011','21-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000007,NULL,100007,'01-Apr-2011','07-Apr-2011','06-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> select student_code ,student_name,dept_name from student_master stu,department_master mas where stu.dept_code=mas.dept_code;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1001 Amit
+Computer Science
+
+        1002 Ravi
+Computer Science
+
+        1020 Amrit
+Computer Science
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1014 Sunil
+Computer Science
+
+        1008 Dev
+Computer Science
+
+        1007 Mehul
+Electricals
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1003 Ajay
+Electricals
+
+        1013 Anil
+Electricals
+
+        1021 Sumit
+Electricals
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1017 Ramesh
+Electronics
+
+        1009 Vijay
+Electronics
+
+        1012 Rajesh
+Electronics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1004 Raj
+Electronics
+
+        1010 Rajat
+Mechanics
+
+        1015 Kapil
+Mechanics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1005 Arvind
+Mechanics
+
+        1016 Ashok
+Mechanics
+
+        1011 Sunder
+Robotics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1019 Ravi Raj
+Robotics
+
+        1018 Amit Raj
+Robotics
+
+        1006 Rahul
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,staff_name,dept_name from student_master stu,department_master dep,staff_master sta where stu.dept_code=dep.dept_code;
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit
+Ram
+Computer Science
+
+Amit
+Rahul
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit
+Raviraj
+Computer Science
+
+Amit
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Amit
+Allen
+Computer Science
+
+Amit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Computer Science
+
+Amit
+Anil
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit
+Mohan
+Computer Science
+
+Amit
+Shyam
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit
+Arvind
+Computer Science
+
+Ravi
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Ravi
+Rahul
+Computer Science
+
+Ravi
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Computer Science
+
+Ravi
+Smith
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi
+Allen
+Computer Science
+
+Ravi
+John
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ravi
+Anil
+Computer Science
+
+Ravi
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Ravi
+Shyam
+Computer Science
+
+Ravi
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Computer Science
+
+Ajay
+Ram
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ajay
+Rahul
+Electricals
+
+Ajay
+Raviraj
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ajay
+Smith
+Electricals
+
+Ajay
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Ajay
+John
+Electricals
+
+Ajay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Electricals
+
+Ajay
+Mohan
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ajay
+Shyam
+Electricals
+
+Ajay
+Arvind
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Raj
+Ram
+Electronics
+
+Raj
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Raj
+Raviraj
+Electronics
+
+Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Electronics
+
+Raj
+Allen
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raj
+John
+Electronics
+
+Raj
+Anil
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Raj
+Mohan
+Electronics
+
+Raj
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Raj
+Arvind
+Electronics
+
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Mechanics
+
+Arvind
+Rahul
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Raviraj
+Mechanics
+
+Arvind
+Smith
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Arvind
+Allen
+Mechanics
+
+Arvind
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Arvind
+Anil
+Mechanics
+
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Mechanics
+
+Arvind
+Shyam
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Arvind
+Mechanics
+
+Rahul
+Ram
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rahul
+Rahul
+Robotics
+
+Rahul
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Rahul
+Smith
+Robotics
+
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Robotics
+
+Rahul
+John
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Anil
+Robotics
+
+Rahul
+Mohan
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rahul
+Shyam
+Robotics
+
+Rahul
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Mehul
+Ram
+Electricals
+
+Mehul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Electricals
+
+Mehul
+Raviraj
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mehul
+Smith
+Electricals
+
+Mehul
+Allen
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Mehul
+John
+Electricals
+
+Mehul
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Mehul
+Mohan
+Electricals
+
+Mehul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Electricals
+
+Mehul
+Arvind
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Dev
+Ram
+Computer Science
+
+Dev
+Rahul
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Dev
+Raviraj
+Computer Science
+
+Dev
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Dev
+Allen
+Computer Science
+
+Dev
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Computer Science
+
+Dev
+Anil
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Dev
+Mohan
+Computer Science
+
+Dev
+Shyam
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Dev
+Arvind
+Computer Science
+
+Vijay
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Vijay
+Rahul
+Electronics
+
+Vijay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Electronics
+
+Vijay
+Smith
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Vijay
+Allen
+Electronics
+
+Vijay
+John
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Vijay
+Anil
+Electronics
+
+Vijay
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Vijay
+Shyam
+Electronics
+
+Vijay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Electronics
+
+Rajat
+Ram
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajat
+Rahul
+Mechanics
+
+Rajat
+Raviraj
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rajat
+Smith
+Mechanics
+
+Rajat
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Rajat
+John
+Mechanics
+
+Rajat
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Mechanics
+
+Rajat
+Mohan
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajat
+Shyam
+Mechanics
+
+Rajat
+Arvind
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunder
+Ram
+Robotics
+
+Sunder
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Sunder
+Raviraj
+Robotics
+
+Sunder
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Robotics
+
+Sunder
+Allen
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sunder
+John
+Robotics
+
+Sunder
+Anil
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunder
+Mohan
+Robotics
+
+Sunder
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Sunder
+Arvind
+Robotics
+
+Rajesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Electronics
+
+Rajesh
+Rahul
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajesh
+Raviraj
+Electronics
+
+Rajesh
+Smith
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rajesh
+Allen
+Electronics
+
+Rajesh
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Rajesh
+Anil
+Electronics
+
+Rajesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Electronics
+
+Rajesh
+Shyam
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajesh
+Arvind
+Electronics
+
+Anil
+Ram
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Anil
+Rahul
+Electricals
+
+Anil
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Anil
+Smith
+Electricals
+
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Electricals
+
+Anil
+John
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Anil
+Electricals
+
+Anil
+Mohan
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Anil
+Shyam
+Electricals
+
+Anil
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Sunil
+Ram
+Computer Science
+
+Sunil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Computer Science
+
+Sunil
+Raviraj
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sunil
+Smith
+Computer Science
+
+Sunil
+Allen
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunil
+John
+Computer Science
+
+Sunil
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Sunil
+Mohan
+Computer Science
+
+Sunil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Computer Science
+
+Sunil
+Arvind
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Kapil
+Ram
+Mechanics
+
+Kapil
+Rahul
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Kapil
+Raviraj
+Mechanics
+
+Kapil
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Kapil
+Allen
+Mechanics
+
+Kapil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Mechanics
+
+Kapil
+Anil
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Kapil
+Mohan
+Mechanics
+
+Kapil
+Shyam
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Kapil
+Arvind
+Mechanics
+
+Ashok
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Ashok
+Rahul
+Mechanics
+
+Ashok
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Mechanics
+
+Ashok
+Smith
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ashok
+Allen
+Mechanics
+
+Ashok
+John
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ashok
+Anil
+Mechanics
+
+Ashok
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Ashok
+Shyam
+Mechanics
+
+Ashok
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Mechanics
+
+Ramesh
+Ram
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ramesh
+Rahul
+Electronics
+
+Ramesh
+Raviraj
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ramesh
+Smith
+Electronics
+
+Ramesh
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Ramesh
+John
+Electronics
+
+Ramesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Electronics
+
+Ramesh
+Mohan
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ramesh
+Shyam
+Electronics
+
+Ramesh
+Arvind
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit Raj
+Ram
+Robotics
+
+Amit Raj
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Amit Raj
+Raviraj
+Robotics
+
+Amit Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Robotics
+
+Amit Raj
+Allen
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit Raj
+John
+Robotics
+
+Amit Raj
+Anil
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit Raj
+Mohan
+Robotics
+
+Amit Raj
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Amit Raj
+Arvind
+Robotics
+
+Ravi Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Robotics
+
+Ravi Raj
+Rahul
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj
+Raviraj
+Robotics
+
+Ravi Raj
+Smith
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ravi Raj
+Allen
+Robotics
+
+Ravi Raj
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Ravi Raj
+Anil
+Robotics
+
+Ravi Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Robotics
+
+Ravi Raj
+Shyam
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj
+Arvind
+Robotics
+
+Amrit
+Ram
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amrit
+Rahul
+Computer Science
+
+Amrit
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Amrit
+Smith
+Computer Science
+
+Amrit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Computer Science
+
+Amrit
+John
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amrit
+Anil
+Computer Science
+
+Amrit
+Mohan
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amrit
+Shyam
+Computer Science
+
+Amrit
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Sumit
+Ram
+Electricals
+
+Sumit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Electricals
+
+Sumit
+Raviraj
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sumit
+Smith
+Electricals
+
+Sumit
+Allen
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sumit
+John
+Electricals
+
+Sumit
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Sumit
+Mohan
+Electricals
+
+Sumit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Electricals
+
+Sumit
+Arvind
+Electricals
+
+
+210 rows selected.
+
+SQL> desc student_name from student_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> desc student_name;
+ERROR:
+ORA-04043: object student_name does not exist
+
+
+SQL> desc staff_name from department_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> desc staff_name from staff_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select st.staff_code,st.staff_name,
+  2  mgr.staff_code,mgr.staff_name
+  3  from staff_master st,staff_master mgr
+  4  where st.mgr_code=mgr.staff_code;
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100006 Allen                                                  100005
+John
+
+    100007 Smith                                                  100005
+John
+
+    100009 Rahul                                                  100006
+Allen
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100008 Raviraj                                                100006
+Allen
+
+    100003 Mohan                                                  100006
+Allen
+
+    100004 Anil                                                   100006
+Allen
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100001 Arvind                                                 100006
+Allen
+
+    100010 Ram                                                    100007
+Smith
+
+    100002 Shyam                                                  100007
+Smith
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100005 John                                                   100007
+Smith
+
+
+10 rows selected.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select e.ename "Employees",m.ename "Managaers"
+  2  from emp e,emp m
+  3  where e.ename=m.ename;
+
+Employees  Managaers
+---------- ----------
+SMITH      SMITH
+ALLEN      ALLEN
+WARD       WARD
+JONES      JONES
+MARTIN     MARTIN
+BLAKE      BLAKE
+CLARK      CLARK
+SCOTT      SCOTT
+KING       KING
+TURNER     TURNER
+ADAMS      ADAMS
+
+Employees  Managaers
+---------- ----------
+JAMES      JAMES
+FORD       FORD
+MILLER     MILLER
+
+14 rows selected.
+
+SQL>
+SQL> SQL> select e.ename "Employees",m.ename "Managaers"
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>   2  from emp e,emp m
+SQL>   3  where e.ename=m.ena
+SQL> select e.ename "Employees",m.ename "Managaers"
+  2    2  from emp e,emp m
+  3    3  where e.mgr=m.emp;
+  2  from emp e,emp m
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> spool
+not spooling currently
+SQL> spool 1e.sql
+SQL> desc staff_name;
+ERROR:
+ORA-04043: object staff_name does not exist
+
+
+SQL> desc staff_code;
+ERROR:
+ORA-04043: object staff_code does not exist
+
+
+SQL> select staff_code from staff_master;
+
+STAFF_CODE
+----------
+    100001
+    100002
+    100003
+    100004
+    100005
+    100006
+    100007
+    100008
+    100009
+    100010
+
+10 rows selected.
+
+SQL> select staff_name from staff_master;
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool 1e.sql
+SQL> select 'staff\_name' escape '\' from staff_master;
+select 'staff\_name' escape '\' from staff_master
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select 'staff\_name' escape from staff_master;
+
+ESCAPE
+-----------
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+
+10 rows selected.
+
+SQL> select staff\_name escape from staff_master;
+select staff\_name escape from staff_master
+            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select staff_name from staff_master where staff_name like '%_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool 1e.sql
+SQL>  select staff_name from staff_master where staff_name like '%_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool off
+SQL> spool 2.sql
+SQL> select staff_name,staff_sal,to_char(staff_sal,'$99,999.0000000000') from staff_master;
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Arvind                                                  17000
+ $17,000.0000000000
+
+Shyam                                                   20000
+ $20,000.0000000000
+
+Mohan                                                   24000
+ $24,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Anil                                                    20000
+ $20,000.0000000000
+
+John                                                    32000
+ $32,000.0000000000
+
+Allen                                                   42000
+ $42,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Smith                                                   62000
+ $62,000.0000000000
+
+Raviraj                                                 18000
+ $18,000.0000000000
+
+Rahul                                                   22000
+ $22,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Ram                                                     32000
+ $32,000.0000000000
+
+
+10 rows selected.
+
+SQL> spool off
+SQL> desc employees
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> select e.last_name,e.salary,j.job_title
+  2  from employees e,jobs j
+  3  where e.salary between j.min_salary and j.max_salary;
+
+no rows selected
+
+SQL> select e.last_name,d.department_name
+  2  from employees e,departments d
+  3  where e.department_id=d.department_id;
+
+no rows selected
+
+SQL> select student_dob ,next_day('01-Sep-95','Friday') from student_master;
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+11-JAN-80 08-SEP-95
+01-NOV-81 08-SEP-95
+13-JAN-82 08-SEP-95
+14-JAN-79 08-SEP-95
+15-JAN-83 08-SEP-95
+16-JAN-81 08-SEP-95
+17-JAN-82 08-SEP-95
+11-MAR-81 08-SEP-95
+19-JAN-80 08-SEP-95
+20-JAN-80 08-SEP-95
+21-JAN-80 08-SEP-95
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+22-JAN-80 08-SEP-95
+23-JAN-80 08-SEP-95
+15-FEB-85 08-SEP-95
+18-MAR-81 08-SEP-95
+26-NOV-80 08-SEP-95
+27-DEC-80 08-SEP-95
+28-SEP-80 08-SEP-95
+29-MAY-81 08-SEP-95
+11-NOV-80 08-SEP-95
+01-JAN-80 08-SEP-95
+
+21 rows selected.
+
+SQL> select student_dob,to_date('student_dob','Month dd,yyyy') from student_master;
+select student_dob,to_date('student_dob','Month dd,yyyy') from student_master
+                           *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select student_dob,to_date(student_dob,'Month dd,yyyy') from student_master;
+select student_dob,to_date(student_dob,'Month dd,yyyy') from student_master
+                           *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select student_dob,next_day(student_dob,'Saturday') from student_master;
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+11-JAN-80 12-JAN-80
+01-NOV-81 07-NOV-81
+13-JAN-82 16-JAN-82
+14-JAN-79 20-JAN-79
+15-JAN-83 22-JAN-83
+16-JAN-81 17-JAN-81
+17-JAN-82 23-JAN-82
+11-MAR-81 14-MAR-81
+19-JAN-80 26-JAN-80
+20-JAN-80 26-JAN-80
+21-JAN-80 26-JAN-80
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+22-JAN-80 26-JAN-80
+23-JAN-80 26-JAN-80
+15-FEB-85 16-FEB-85
+18-MAR-81 21-MAR-81
+26-NOV-80 29-NOV-80
+27-DEC-80 03-JAN-81
+28-SEP-80 04-OCT-80
+29-MAY-81 30-MAY-81
+11-NOV-80 15-NOV-80
+01-JAN-80 05-JAN-80
+
+21 rows selected.
+
+SQL> desc student_dob
+ERROR:
+ORA-04043: object student_dob does not exist
+
+
+SQL> desc student_obj from student_master
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select student_name,dept_code,dept_name from student_master natural join department_master;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,dept_code,dept_name from student_master natural join department_master;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code;
+select student_name,dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code
+                    *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> select student_name,dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code;
+select student_name,dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code
+                                                                       *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select student_name,s.dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code;
+select student_name,s.dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code
+                                                                         *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select student_name,s.dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select e.name "Employees",m.ename "Managers"
+  2  from emp e join emp m
+  3  on e.mgr=m.empno;
+select e.name "Employees",m.ename "Managers"
+       *
+ERROR at line 1:
+ORA-00980: synonym translation is no longer valid
+
+
+SQL> select e.ename "Employees",m.ename "Managers"
+  2  from emp e join emp m
+  3  on e.mgr=m.empno;
+
+Employees  Managers
+---------- ----------
+FORD       JONES
+SCOTT      JONES
+JAMES      BLAKE
+TURNER     BLAKE
+MARTIN     BLAKE
+WARD       BLAKE
+ALLEN      BLAKE
+MILLER     CLARK
+ADAMS      SCOTT
+CLARK      KING
+BLAKE      KING
+
+Employees  Managers
+---------- ----------
+JONES      KING
+SMITH      FORD
+
+13 rows selected.
+
+SQL>
+SQL> student_name,dept_code,dept_name
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL> select student_name,dept_code,dept_name
+  2  from student_master s join department_master d
+  3  using(dept_code);
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> desc department_master
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPT_CODE                                 NOT NULL NUMBER(2)
+ DEPT_NAME                                          VARCHAR2(50)
+
+SQL> desc student_name
+ERROR:
+ORA-04043: object student_name does not exist
+
+
+SQL> s.staff_code,s.dept_code,d.dept_name
+SP2-0734: unknown command beginning "s.staff_co..." - rest of line ignored.
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2  from staff_master s,department_master d
+  3  on s.dept_code(+)=d.dept_code;
+on s.dept_code(+)=d.dept_code
+*
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2    2  from staff_master s,department_master d
+  3    3  on s.dept_code(+)=d.dept_code;
+  2  from staff_master s,department_master d
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2    2  from staff_master s left outer join department_master d
+  3    3  on s.dept_code(+)=d.dept_code;
+  2  from staff_master s left outer join department_master d
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2  from staff_master s left outer join  department_master d
+  3    on s.dept_code(+)=d.dept_code;
+  on s.dept_code(+)=d.dept_code
+       *
+ERROR at line 3:
+ORA-01705: an outer join cannot be specified on a correlation column
+
+
+SQL> select sal from emp where sal>"BLAKE";
+select sal from emp where sal>"BLAKE"
+                              *
+ERROR at line 1:
+ORA-00904: "BLAKE": invalid identifier
+
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> select ename from emp where sal> (select sal from emp where enmae="BLAKE");
+select ename from emp where sal> (select sal from emp where enmae="BLAKE")
+                                                                  *
+ERROR at line 1:
+ORA-00904: "BLAKE": invalid identifier
+
+
+SQL>  select ename from emp where sal> (select sal from emp where enmae='BLAKE');
+ select ename from emp where sal> (select sal from emp where enmae='BLAKE')
+                                                             *
+ERROR at line 1:
+ORA-00904: "ENMAE": invalid identifier
+
+
+SQL>  select ename from emp where sal> (select sal from emp where ename='BLAKE');
+
+ENAME
+----------
+JONES
+SCOTT
+KING
+FORD
+
+SQL> select ename,sal,mgr where mgr like 'JONES';
+select ename,sal,mgr where mgr like 'JONES'
+                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select ename,sal,mgr from emp where mgr like 'JONES';
+
+no rows selected
+
+SQL> select ename,sal,mgr from emp where mgr =(select mgr from emp where ename= 'JONES');
+
+ENAME             SAL        MGR
+---------- ---------- ----------
+JONES            2975       7839
+BLAKE            2850       7839
+CLARK            2450       7839
+
+SQL> select dept_code from department_master
+  2  select dept_code from department_master;
+select dept_code from department_master
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select student_name from student_master
+  2  select student_name from student_master ;
+select student_name from student_master
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics')
+  2  select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics')
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1005 Arvind                                                     40
+15-JAN-83
+Bangalore
+
+        1010 Rajat                                                      40
+20-JAN-80
+Bangalore
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1015 Kapil                                                      40
+18-MAR-81
+Mumbai
+
+        1016 Ashok                                                      40
+26-NOV-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+
+SQL> select student_name from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+
+STUDENT_NAME
+--------------------------------------------------
+Arvind
+Rajat
+Kapil
+Ashok
+
+SQL> select * from emp where mgr= (select ename from emp where ename=7844);
+select * from emp where mgr= (select ename from emp where ename=7844)
+                                                          *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> select * from emp where mgr= (select mgr from emp where empo=7844);
+select * from emp where mgr= (select mgr from emp where empo=7844)
+                                                        *
+ERROR at line 1:
+ORA-00904: "EMPO": invalid identifier
+
+
+SQL> select * from emp where mgr= (select mgr from emp where empno=7844);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+SQL> select ename,mgr from emp where deptno=30;
+
+ENAME             MGR
+---------- ----------
+ALLEN            7698
+WARD             7698
+MARTIN           7698
+BLAKE            7839
+TURNER           7698
+JAMES            7698
+
+6 rows selected.
+
+SQL> select * from emp where empno=7934 and empno=7788 and empno=7654;
+
+no rows selected
+
+SQL> desc empno;
+ERROR:
+ORA-04043: object empno does not exist
+
+
+SQL> desc empno from emp;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select empno from emp;
+
+     EMPNO
+----------
+      7369
+      7499
+      7521
+      7566
+      7654
+      7698
+      7782
+      7788
+      7839
+      7844
+      7876
+
+     EMPNO
+----------
+      7900
+      7902
+      7934
+
+14 rows selected.
+
+SQL> select ename,sal from emp where empno=7934 and empno=7788 and empno=7654;
+
+no rows selected
+
+SQL> select ename,sal from emp where empno=7654;
+
+ENAME             SAL
+---------- ----------
+MARTIN           1250
+
+SQL> select ename,sal from emp where empno=7934 or empno=7788 or empno=7654;
+
+ENAME             SAL
+---------- ----------
+MARTIN           1250
+SCOTT            3000
+MILLER           1300
+
+SQL>
+
+
+PART-2
+
+
+
+
+
+
+SQL*Plus: Release 11.2.0.2.0 Production on Tue Jan 29 10:52:20 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect Trg428/training428@//10.219.34.3:1521/orcl
+Connected.
+SQL> Designation Master
+SP2-0734: unknown command beginning "Designatio..." - rest of line ignored.
+SQL> CREATE TABLE designation_master(
+  2  Design_Code NUMBER(3) PRIMARY KEY,
+  3  Design_Name VARCHAR2(50) UNIQUE);
+CREATE TABLE designation_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO designation_master VALUES(101,'HOD');
+INSERT INTO designation_master VALUES(101,'HOD')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(102,'Professor');
+INSERT INTO designation_master VALUES(102,'Professor')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(103,'Reader');
+INSERT INTO designation_master VALUES(103,'Reader')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(104,'Sr.Lecturer');
+INSERT INTO designation_master VALUES(104,'Sr.Lecturer')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(105,'Lecturer');
+INSERT INTO designation_master VALUES(105,'Lecturer')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL> INSERT INTO designation_master VALUES(106,'Director');
+INSERT INTO designation_master VALUES(106,'Director')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576867) violated
+
+
+SQL>
+SQL> Department Master
+SP2-0734: unknown command beginning "Department..." - rest of line ignored.
+SQL> CREATE TABLE department_master(
+  2  Dept_code NUMBER(2) PRIMARY KEY,
+  3  Dept_Name VARCHAR2(50) UNIQUE);
+CREATE TABLE department_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO department_master VALUES(10,'Computer Science');
+INSERT INTO department_master VALUES(10,'Computer Science')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(20,'Electricals');
+INSERT INTO department_master VALUES(20,'Electricals')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(30,'Electronics');
+INSERT INTO department_master VALUES(30,'Electronics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(40,'Mechanics');
+INSERT INTO department_master VALUES(40,'Mechanics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL> INSERT INTO department_master VALUES(50,'Robotics');
+INSERT INTO department_master VALUES(50,'Robotics')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576869) violated
+
+
+SQL>
+SQL> Student Master
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE student_master(
+  2  Student_Code NUMBER(6) PRIMARY KEY,
+  3  Student_Name VARCHAR2(50) NOT NULL,
+  4  Dept_Code NUMBER(2) REFERENCES department_master(dept_code),
+  5  Student_Dob DATE,
+  6  Student_Address VARCHAR2(240));
+CREATE TABLE student_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO student_master VALUES(1001,'Amit',10,'11-Jan-80','chennai');
+INSERT INTO student_master VALUES(1001,'Amit',10,'11-Jan-80','chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1002,'Ravi',10,'1-Nov-81','New Delhi');
+INSERT INTO student_master VALUES(1002,'Ravi',10,'1-Nov-81','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1003,'Ajay',20,'13-Jan-82',null);
+INSERT INTO student_master VALUES(1003,'Ajay',20,'13-Jan-82',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1004,'Raj',30,'14-Jan-79','Mumbai');
+INSERT INTO student_master VALUES(1004,'Raj',30,'14-Jan-79','Mumbai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1005,'Arvind',40,'15-Jan-83','Bangalore');
+INSERT INTO student_master VALUES(1005,'Arvind',40,'15-Jan-83','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1006,'Rahul',50,'16-Jan-81','Delhi');
+INSERT INTO student_master VALUES(1006,'Rahul',50,'16-Jan-81','Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1007,'Mehul',20,'17-Jan-82','Chennai');
+INSERT INTO student_master VALUES(1007,'Mehul',20,'17-Jan-82','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1008,'Dev',10,'11-Mar-81','Bangalore');
+INSERT INTO student_master VALUES(1008,'Dev',10,'11-Mar-81','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1009,'Vijay',30,'19-Jan-80','Bangalore');
+INSERT INTO student_master VALUES(1009,'Vijay',30,'19-Jan-80','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1010,'Rajat',40,'20-Jan-80','Bangalore');
+INSERT INTO student_master VALUES(1010,'Rajat',40,'20-Jan-80','Bangalore')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1011,'Sunder',50,'21-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1011,'Sunder',50,'21-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1012,'Rajesh', 30,'22-Jan-80',null);
+INSERT INTO student_master VALUES(1012,'Rajesh', 30,'22-Jan-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1013,'Anil',20,'23-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1013,'Anil',20,'23-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1014,'Sunil',10,'15-Feb-85',null);
+INSERT INTO student_master VALUES(1014,'Sunil',10,'15-Feb-85',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1015,'Kapil',40,'18-Mar-81','Mumbai');
+INSERT INTO student_master VALUES(1015,'Kapil',40,'18-Mar-81','Mumbai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1016,'Ashok',40,'26-Nov-80',null);
+INSERT INTO student_master VALUES(1016,'Ashok',40,'26-Nov-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1017,'Ramesh',30,'27-Dec-80',null);
+INSERT INTO student_master VALUES(1017,'Ramesh',30,'27-Dec-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1018,'Amit Raj',50,'28-Sep-80','New Delhi');
+INSERT INTO student_master VALUES(1018,'Amit Raj',50,'28-Sep-80','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1019,'Ravi Raj',50,'29-May-81','New Delhi');
+INSERT INTO student_master VALUES(1019,'Ravi Raj',50,'29-May-81','New Delhi')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1020,'Amrit',10,'11-Nov-80',null);
+INSERT INTO student_master VALUES(1020,'Amrit',10,'11-Nov-80',null)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL> INSERT INTO student_master VALUES(1021,'Sumit',20,'1-Jan-80','Chennai');
+INSERT INTO student_master VALUES(1021,'Sumit',20,'1-Jan-80','Chennai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576872) violated
+
+
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> Student Marks
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE Student_Marks(
+  2  Student_Code NUMBER (6) REFERENCES student_master(student_code),
+  3  Student_Year NUMBER not null,
+  4  Subject1 NUMBER (3),
+  5  Subject2 NUMBER (3),
+  6  Subject3 NUMBER (3));
+CREATE TABLE Student_Marks(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> INSERT INTO student_marks VALUES(1001,2010,55,45,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1002,2010,66,74,88);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1003,2010,87,54,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1004,2010,65,64,90);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1005,2010,78,88,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1006,2010,65,86,54);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1007,2010,67,79,49);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1008,2010,72,55,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1009,2010,71,59,58);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1010,2010,68,44,92);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1011,2010,89,96,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1012,2010,78,56,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1013,2010,75,58,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1014,2010,73,74,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1015,2010,66,45,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1016,2010,68,78,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1017,2010,69,44,52);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1018,2010,65,78,56);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1019,2010,78,58,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1020,2010,45,55,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1021,2010,78,79,78);
+
+1 row created.
+
+SQL>
+SQL> Data to be repeated for 2 more years
+SP2-0734: unknown command beginning "Data to be..." - rest of line ignored.
+SQL>
+SQL> Staff Master
+SP2-0734: unknown command beginning "Staff Mast..." - rest of line ignored.
+SQL> CREATE TABLE staff_master(
+  2  Staff_Code number(8) PRIMARY KEY,
+  3  Staff_Name varchar2(50) NOT NULL,
+  4  Design_Code REFERENCES designation_master(design_code),
+  5  Dept_Code references department_master(dept_code),
+  6  Staff_dob DATE,
+  7  Hiredate DATE,
+  8  Mgr_code NUMBER(8),
+  9  Staff_sal NUMBER (10,2),
+ 10  Staff_address VARCHAR2(240));
+CREATE TABLE staff_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100001,'Arvind',102,30,'15-Jan-80','15-Jan-03',100006,17000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100002,'Shyam',102,20,'18-Feb-80','17-Feb-02',100007,20000, 'Chennai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100003,'Mohan',102,10,'23-Mar-80','19-Jan-02',100006,24000,'Mumbai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100004,'Anil',102,20,'22-Apr-77','11-Mar-01',100006,20000,'Hyderabad');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100005,'John',106,10,'22-May-76','21-Jan-01',100007,32000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100006,'Allen',103,30,'22-Jan-80','23-Apr-01',100005,42000,'Chennai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL>
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100007,'Smith',103,20,'19-Jul-73','12-Mar-02',100005,62000,'Mumbai');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100008,'Raviraj',102,40,'17-Jun-80','11-Jan-03',100006,18000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100009,'Rahul',102,20,'16-Jan-78','11-Dec-03',100006,22000,'Hyderabad');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100010,'Ram',103,30,'17-Jan-79','17-Jan-02',100007,32000,'Bangalore');
+INSERT INTO staff_master
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576877) violated
+
+
+SQL>
+SQL> Book Master
+SP2-0734: unknown command beginning "Book Maste..." - rest of line ignored.
+SQL> CREATE TABLE book_master(
+  2  Book_code NUMBER(10) PRIMARY KEY,
+  3  Book_name VARCHAR2(50) NOT NULL,
+  4  Book_pub_year NUMBER,
+  5  Book_pub_author VARCHAR2 (50) NOT NULL);
+CREATE TABLE book_master(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL>
+SQL> INSERT INTO book_master VALUES(10000001,'Let Us C++',2000, 'Yashavant Kanetkar');
+INSERT INTO book_master VALUES(10000001,'Let Us C++',2000, 'Yashavant Kanetkar')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000002,'Mastering VC++',2005,'P.J Allen');
+INSERT INTO book_master VALUES(10000002,'Mastering VC++',2005,'P.J Allen')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000003,'JAVA Complete Reference',2004,'H.Schild');
+INSERT INTO book_master VALUES(10000003,'JAVA Complete Reference',2004,'H.Schild')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000004,'J2EE Complete Reference',2000,'H. Schild');
+INSERT INTO book_master VALUES(10000004,'J2EE Complete Reference',2000,'H. Schild')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000005,'Relational DBMS',2000,'B.C. Desai');
+INSERT INTO book_master VALUES(10000005,'Relational DBMS',2000,'B.C. Desai')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000006,'Let Us C',2000, 'Yashavant Kanetkar');
+INSERT INTO book_master VALUES(10000006,'Let Us C',2000, 'Yashavant Kanetkar')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000007,'Intoduction To Algorithams',2001,'Cormen');
+INSERT INTO book_master VALUES(10000007,'Intoduction To Algorithams',2001,'Cormen')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000008,'Computer Networks',2000,'Tanenbaum');
+INSERT INTO book_master VALUES(10000008,'Computer Networks',2000,'Tanenbaum')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000009,'Introduction to O/S',2001,'Millan');
+INSERT INTO book_master VALUES(10000009,'Introduction to O/S',2001,'Millan')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (TRG428.SYS_C00576882) violated
+
+
+SQL>
+SQL> Book Transaction
+SP2-0734: unknown command beginning "Book Trans..." - rest of line ignored.
+SQL> CREATE TABLE book_transaction(
+  2  Book_code NUMBER(10) REFERENCES book_master(Book_code),
+  3  Student_code NUMBER(6) REFERENCES student_master(student_code),
+  4  Staff_code number(8) REFERENCES staff_master(staff_code),
+  5  Book_issue_Date date not null,
+  6  Book_expected_return_date date not null,
+  7  Book_actual_return_date date);
+CREATE TABLE book_transaction(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000006,1012,NULL,'02-Feb-2011','09-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000008,NULL,100006,'10-Mar-2011','17-Mar-2011','15-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000009,NULL,100010,'01-Apr-2011','08-Apr-2011','10-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000004,1015,NULL,'12-Feb-2011','19-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000005,NULL,100007,'14-Mar-2011','21-Mar-2011','21-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000007,NULL,100007,'01-Apr-2011','07-Apr-2011','06-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> select student_code ,student_name,dept_name from student_master stu,department_master mas where stu.dept_code=mas.dept_code;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1001 Amit
+Computer Science
+
+        1002 Ravi
+Computer Science
+
+        1020 Amrit
+Computer Science
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1014 Sunil
+Computer Science
+
+        1008 Dev
+Computer Science
+
+        1007 Mehul
+Electricals
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1003 Ajay
+Electricals
+
+        1013 Anil
+Electricals
+
+        1021 Sumit
+Electricals
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1017 Ramesh
+Electronics
+
+        1009 Vijay
+Electronics
+
+        1012 Rajesh
+Electronics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1004 Raj
+Electronics
+
+        1010 Rajat
+Mechanics
+
+        1015 Kapil
+Mechanics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1005 Arvind
+Mechanics
+
+        1016 Ashok
+Mechanics
+
+        1011 Sunder
+Robotics
+
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+        1019 Ravi Raj
+Robotics
+
+        1018 Amit Raj
+Robotics
+
+        1006 Rahul
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,staff_name,dept_name from student_master stu,department_master dep,staff_master sta where stu.dept_code=dep.dept_code;
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit
+Ram
+Computer Science
+
+Amit
+Rahul
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit
+Raviraj
+Computer Science
+
+Amit
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Amit
+Allen
+Computer Science
+
+Amit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Computer Science
+
+Amit
+Anil
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit
+Mohan
+Computer Science
+
+Amit
+Shyam
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit
+Arvind
+Computer Science
+
+Ravi
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Ravi
+Rahul
+Computer Science
+
+Ravi
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Computer Science
+
+Ravi
+Smith
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi
+Allen
+Computer Science
+
+Ravi
+John
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ravi
+Anil
+Computer Science
+
+Ravi
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Ravi
+Shyam
+Computer Science
+
+Ravi
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Computer Science
+
+Ajay
+Ram
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ajay
+Rahul
+Electricals
+
+Ajay
+Raviraj
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ajay
+Smith
+Electricals
+
+Ajay
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Ajay
+John
+Electricals
+
+Ajay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Electricals
+
+Ajay
+Mohan
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ajay
+Shyam
+Electricals
+
+Ajay
+Arvind
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Raj
+Ram
+Electronics
+
+Raj
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Raj
+Raviraj
+Electronics
+
+Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Electronics
+
+Raj
+Allen
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raj
+John
+Electronics
+
+Raj
+Anil
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Raj
+Mohan
+Electronics
+
+Raj
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Raj
+Arvind
+Electronics
+
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Mechanics
+
+Arvind
+Rahul
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Raviraj
+Mechanics
+
+Arvind
+Smith
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Arvind
+Allen
+Mechanics
+
+Arvind
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Arvind
+Anil
+Mechanics
+
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Mechanics
+
+Arvind
+Shyam
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Arvind
+Mechanics
+
+Rahul
+Ram
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rahul
+Rahul
+Robotics
+
+Rahul
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Rahul
+Smith
+Robotics
+
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Robotics
+
+Rahul
+John
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Anil
+Robotics
+
+Rahul
+Mohan
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rahul
+Shyam
+Robotics
+
+Rahul
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Mehul
+Ram
+Electricals
+
+Mehul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Electricals
+
+Mehul
+Raviraj
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mehul
+Smith
+Electricals
+
+Mehul
+Allen
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Mehul
+John
+Electricals
+
+Mehul
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Mehul
+Mohan
+Electricals
+
+Mehul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Electricals
+
+Mehul
+Arvind
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Dev
+Ram
+Computer Science
+
+Dev
+Rahul
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Dev
+Raviraj
+Computer Science
+
+Dev
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Dev
+Allen
+Computer Science
+
+Dev
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Computer Science
+
+Dev
+Anil
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Dev
+Mohan
+Computer Science
+
+Dev
+Shyam
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Dev
+Arvind
+Computer Science
+
+Vijay
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Vijay
+Rahul
+Electronics
+
+Vijay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Electronics
+
+Vijay
+Smith
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Vijay
+Allen
+Electronics
+
+Vijay
+John
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Vijay
+Anil
+Electronics
+
+Vijay
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Vijay
+Shyam
+Electronics
+
+Vijay
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Electronics
+
+Rajat
+Ram
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajat
+Rahul
+Mechanics
+
+Rajat
+Raviraj
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rajat
+Smith
+Mechanics
+
+Rajat
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Rajat
+John
+Mechanics
+
+Rajat
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Mechanics
+
+Rajat
+Mohan
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajat
+Shyam
+Mechanics
+
+Rajat
+Arvind
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunder
+Ram
+Robotics
+
+Sunder
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Sunder
+Raviraj
+Robotics
+
+Sunder
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Robotics
+
+Sunder
+Allen
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sunder
+John
+Robotics
+
+Sunder
+Anil
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunder
+Mohan
+Robotics
+
+Sunder
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Sunder
+Arvind
+Robotics
+
+Rajesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Electronics
+
+Rajesh
+Rahul
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajesh
+Raviraj
+Electronics
+
+Rajesh
+Smith
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Rajesh
+Allen
+Electronics
+
+Rajesh
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Rajesh
+Anil
+Electronics
+
+Rajesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Electronics
+
+Rajesh
+Shyam
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rajesh
+Arvind
+Electronics
+
+Anil
+Ram
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Anil
+Rahul
+Electricals
+
+Anil
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Anil
+Smith
+Electricals
+
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Electricals
+
+Anil
+John
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Anil
+Electricals
+
+Anil
+Mohan
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Anil
+Shyam
+Electricals
+
+Anil
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Sunil
+Ram
+Computer Science
+
+Sunil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Computer Science
+
+Sunil
+Raviraj
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sunil
+Smith
+Computer Science
+
+Sunil
+Allen
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sunil
+John
+Computer Science
+
+Sunil
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Sunil
+Mohan
+Computer Science
+
+Sunil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Computer Science
+
+Sunil
+Arvind
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Kapil
+Ram
+Mechanics
+
+Kapil
+Rahul
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Kapil
+Raviraj
+Mechanics
+
+Kapil
+Smith
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Kapil
+Allen
+Mechanics
+
+Kapil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+John
+Mechanics
+
+Kapil
+Anil
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Kapil
+Mohan
+Mechanics
+
+Kapil
+Shyam
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Kapil
+Arvind
+Mechanics
+
+Ashok
+Ram
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Ashok
+Rahul
+Mechanics
+
+Ashok
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Raviraj
+Mechanics
+
+Ashok
+Smith
+Mechanics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ashok
+Allen
+Mechanics
+
+Ashok
+John
+Mechanics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ashok
+Anil
+Mechanics
+
+Ashok
+Mohan
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mechanics
+
+Ashok
+Shyam
+Mechanics
+
+Ashok
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Arvind
+Mechanics
+
+Ramesh
+Ram
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ramesh
+Rahul
+Electronics
+
+Ramesh
+Raviraj
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ramesh
+Smith
+Electronics
+
+Ramesh
+Allen
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electronics
+
+Ramesh
+John
+Electronics
+
+Ramesh
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Anil
+Electronics
+
+Ramesh
+Mohan
+Electronics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ramesh
+Shyam
+Electronics
+
+Ramesh
+Arvind
+Electronics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit Raj
+Ram
+Robotics
+
+Amit Raj
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Amit Raj
+Raviraj
+Robotics
+
+Amit Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Smith
+Robotics
+
+Amit Raj
+Allen
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amit Raj
+John
+Robotics
+
+Amit Raj
+Anil
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amit Raj
+Mohan
+Robotics
+
+Amit Raj
+Shyam
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Amit Raj
+Arvind
+Robotics
+
+Ravi Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ram
+Robotics
+
+Ravi Raj
+Rahul
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj
+Raviraj
+Robotics
+
+Ravi Raj
+Smith
+Robotics
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Ravi Raj
+Allen
+Robotics
+
+Ravi Raj
+John
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Robotics
+
+Ravi Raj
+Anil
+Robotics
+
+Ravi Raj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Mohan
+Robotics
+
+Ravi Raj
+Shyam
+Robotics
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj
+Arvind
+Robotics
+
+Amrit
+Ram
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amrit
+Rahul
+Computer Science
+
+Amrit
+Raviraj
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Amrit
+Smith
+Computer Science
+
+Amrit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Allen
+Computer Science
+
+Amrit
+John
+Computer Science
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Amrit
+Anil
+Computer Science
+
+Amrit
+Mohan
+Computer Science
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Amrit
+Shyam
+Computer Science
+
+Amrit
+Arvind
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Computer Science
+
+Sumit
+Ram
+Electricals
+
+Sumit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Rahul
+Electricals
+
+Sumit
+Raviraj
+Electricals
+
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Sumit
+Smith
+Electricals
+
+Sumit
+Allen
+Electricals
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+
+Sumit
+John
+Electricals
+
+Sumit
+Anil
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Electricals
+
+Sumit
+Mohan
+Electricals
+
+Sumit
+
+STUDENT_NAME
+--------------------------------------------------
+STAFF_NAME
+--------------------------------------------------
+DEPT_NAME
+--------------------------------------------------
+Shyam
+Electricals
+
+Sumit
+Arvind
+Electricals
+
+
+210 rows selected.
+
+SQL> desc student_name from student_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> desc student_name;
+ERROR:
+ORA-04043: object student_name does not exist
+
+
+SQL> desc staff_name from department_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> desc staff_name from staff_master;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select st.staff_code,st.staff_name,
+  2  mgr.staff_code,mgr.staff_name
+  3  from staff_master st,staff_master mgr
+  4  where st.mgr_code=mgr.staff_code;
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100006 Allen                                                  100005
+John
+
+    100007 Smith                                                  100005
+John
+
+    100009 Rahul                                                  100006
+Allen
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100008 Raviraj                                                100006
+Allen
+
+    100003 Mohan                                                  100006
+Allen
+
+    100004 Anil                                                   100006
+Allen
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100001 Arvind                                                 100006
+Allen
+
+    100010 Ram                                                    100007
+Smith
+
+    100002 Shyam                                                  100007
+Smith
+
+
+STAFF_CODE STAFF_NAME                                         STAFF_CODE
+---------- -------------------------------------------------- ----------
+STAFF_NAME
+--------------------------------------------------
+    100005 John                                                   100007
+Smith
+
+
+10 rows selected.
+
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select e.ename "Employees",m.ename "Managaers"
+  2  from emp e,emp m
+  3  where e.ename=m.ename;
+
+Employees  Managaers
+---------- ----------
+SMITH      SMITH
+ALLEN      ALLEN
+WARD       WARD
+JONES      JONES
+MARTIN     MARTIN
+BLAKE      BLAKE
+CLARK      CLARK
+SCOTT      SCOTT
+KING       KING
+TURNER     TURNER
+ADAMS      ADAMS
+
+Employees  Managaers
+---------- ----------
+JAMES      JAMES
+FORD       FORD
+MILLER     MILLER
+
+14 rows selected.
+
+SQL>
+SQL> SQL> select e.ename "Employees",m.ename "Managaers"
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>   2  from emp e,emp m
+SQL>   3  where e.ename=m.ena
+SQL> select e.ename "Employees",m.ename "Managaers"
+  2    2  from emp e,emp m
+  3    3  where e.mgr=m.emp;
+  2  from emp e,emp m
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> spool
+not spooling currently
+SQL> spool 1e.sql
+SQL> desc staff_name;
+ERROR:
+ORA-04043: object staff_name does not exist
+
+
+SQL> desc staff_code;
+ERROR:
+ORA-04043: object staff_code does not exist
+
+
+SQL> select staff_code from staff_master;
+
+STAFF_CODE
+----------
+    100001
+    100002
+    100003
+    100004
+    100005
+    100006
+    100007
+    100008
+    100009
+    100010
+
+10 rows selected.
+
+SQL> select staff_name from staff_master;
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool 1e.sql
+SQL> select 'staff\_name' escape '\' from staff_master;
+select 'staff\_name' escape '\' from staff_master
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select 'staff\_name' escape from staff_master;
+
+ESCAPE
+-----------
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+staff\_name
+
+10 rows selected.
+
+SQL> select staff\_name escape from staff_master;
+select staff\_name escape from staff_master
+            *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select staff_name from staff_master where staff_name like '%_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool 1e.sql
+SQL>  select staff_name from staff_master where staff_name like '%_%' escape '\';
+
+STAFF_NAME
+--------------------------------------------------
+Arvind
+Shyam
+Mohan
+Anil
+John
+Allen
+Smith
+Raviraj
+Rahul
+Ram
+
+10 rows selected.
+
+SQL> spool off
+SQL> spool 2.sql
+SQL> select staff_name,staff_sal,to_char(staff_sal,'$99,999.0000000000') from staff_master;
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Arvind                                                  17000
+ $17,000.0000000000
+
+Shyam                                                   20000
+ $20,000.0000000000
+
+Mohan                                                   24000
+ $24,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Anil                                                    20000
+ $20,000.0000000000
+
+John                                                    32000
+ $32,000.0000000000
+
+Allen                                                   42000
+ $42,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Smith                                                   62000
+ $62,000.0000000000
+
+Raviraj                                                 18000
+ $18,000.0000000000
+
+Rahul                                                   22000
+ $22,000.0000000000
+
+
+STAFF_NAME                                          STAFF_SAL
+-------------------------------------------------- ----------
+TO_CHAR(STAFF_SAL,'
+-------------------
+Ram                                                     32000
+ $32,000.0000000000
+
+
+10 rows selected.
+
+SQL> spool off
+SQL> desc employees
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> select e.last_name,e.salary,j.job_title
+  2  from employees e,jobs j
+  3  where e.salary between j.min_salary and j.max_salary;
+
+no rows selected
+
+SQL> select e.last_name,d.department_name
+  2  from employees e,departments d
+  3  where e.department_id=d.department_id;
+
+no rows selected
+
+SQL> select student_dob ,next_day('01-Sep-95','Friday') from student_master;
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+11-JAN-80 08-SEP-95
+01-NOV-81 08-SEP-95
+13-JAN-82 08-SEP-95
+14-JAN-79 08-SEP-95
+15-JAN-83 08-SEP-95
+16-JAN-81 08-SEP-95
+17-JAN-82 08-SEP-95
+11-MAR-81 08-SEP-95
+19-JAN-80 08-SEP-95
+20-JAN-80 08-SEP-95
+21-JAN-80 08-SEP-95
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+22-JAN-80 08-SEP-95
+23-JAN-80 08-SEP-95
+15-FEB-85 08-SEP-95
+18-MAR-81 08-SEP-95
+26-NOV-80 08-SEP-95
+27-DEC-80 08-SEP-95
+28-SEP-80 08-SEP-95
+29-MAY-81 08-SEP-95
+11-NOV-80 08-SEP-95
+01-JAN-80 08-SEP-95
+
+21 rows selected.
+
+SQL> select student_dob,to_date('student_dob','Month dd,yyyy') from student_master;
+select student_dob,to_date('student_dob','Month dd,yyyy') from student_master
+                           *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select student_dob,to_date(student_dob,'Month dd,yyyy') from student_master;
+select student_dob,to_date(student_dob,'Month dd,yyyy') from student_master
+                           *
+ERROR at line 1:
+ORA-01843: not a valid month
+
+
+SQL> select student_dob,next_day(student_dob,'Saturday') from student_master;
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+11-JAN-80 12-JAN-80
+01-NOV-81 07-NOV-81
+13-JAN-82 16-JAN-82
+14-JAN-79 20-JAN-79
+15-JAN-83 22-JAN-83
+16-JAN-81 17-JAN-81
+17-JAN-82 23-JAN-82
+11-MAR-81 14-MAR-81
+19-JAN-80 26-JAN-80
+20-JAN-80 26-JAN-80
+21-JAN-80 26-JAN-80
+
+STUDENT_D NEXT_DAY(
+--------- ---------
+22-JAN-80 26-JAN-80
+23-JAN-80 26-JAN-80
+15-FEB-85 16-FEB-85
+18-MAR-81 21-MAR-81
+26-NOV-80 29-NOV-80
+27-DEC-80 03-JAN-81
+28-SEP-80 04-OCT-80
+29-MAY-81 30-MAY-81
+11-NOV-80 15-NOV-80
+01-JAN-80 05-JAN-80
+
+21 rows selected.
+
+SQL> desc student_dob
+ERROR:
+ORA-04043: object student_dob does not exist
+
+
+SQL> desc student_obj from student_master
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select student_name,dept_code,dept_name from student_master natural join department_master;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,dept_code,dept_name from student_master natural join department_master;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select student_name,dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code;
+select student_name,dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code
+                    *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> select student_name,dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code;
+select student_name,dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code
+                                                                       *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select student_name,s.dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code;
+select student_name,s.dept_code,dept_name from s.student_master s join s.department_master d on s.dept_code=d.dept_code
+                                                                         *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select student_name,s.dept_code,dept_name from student_master s join department_master d on s.dept_code=d.dept_code;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> select e.name "Employees",m.ename "Managers"
+  2  from emp e join emp m
+  3  on e.mgr=m.empno;
+select e.name "Employees",m.ename "Managers"
+       *
+ERROR at line 1:
+ORA-00980: synonym translation is no longer valid
+
+
+SQL> select e.ename "Employees",m.ename "Managers"
+  2  from emp e join emp m
+  3  on e.mgr=m.empno;
+
+Employees  Managers
+---------- ----------
+FORD       JONES
+SCOTT      JONES
+JAMES      BLAKE
+TURNER     BLAKE
+MARTIN     BLAKE
+WARD       BLAKE
+ALLEN      BLAKE
+MILLER     CLARK
+ADAMS      SCOTT
+CLARK      KING
+BLAKE      KING
+
+Employees  Managers
+---------- ----------
+JONES      KING
+SMITH      FORD
+
+13 rows selected.
+
+SQL>
+SQL> student_name,dept_code,dept_name
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL> select student_name,dept_code,dept_name
+  2  from student_master s join department_master d
+  3  using(dept_code);
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Amit                                                       10
+Computer Science
+
+Ravi                                                       10
+Computer Science
+
+Amrit                                                      10
+Computer Science
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Sunil                                                      10
+Computer Science
+
+Dev                                                        10
+Computer Science
+
+Mehul                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ajay                                                       20
+Electricals
+
+Anil                                                       20
+Electricals
+
+Sumit                                                      20
+Electricals
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ramesh                                                     30
+Electronics
+
+Vijay                                                      30
+Electronics
+
+Rajesh                                                     30
+Electronics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Raj                                                        30
+Electronics
+
+Rajat                                                      40
+Mechanics
+
+Kapil                                                      40
+Mechanics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Arvind                                                     40
+Mechanics
+
+Ashok                                                      40
+Mechanics
+
+Sunder                                                     50
+Robotics
+
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME
+--------------------------------------------------
+Ravi Raj                                                   50
+Robotics
+
+Amit Raj                                                   50
+Robotics
+
+Rahul                                                      50
+Robotics
+
+
+21 rows selected.
+
+SQL> desc department_master
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPT_CODE                                 NOT NULL NUMBER(2)
+ DEPT_NAME                                          VARCHAR2(50)
+
+SQL> desc student_name
+ERROR:
+ORA-04043: object student_name does not exist
+
+
+SQL> s.staff_code,s.dept_code,d.dept_name
+SP2-0734: unknown command beginning "s.staff_co..." - rest of line ignored.
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2  from staff_master s,department_master d
+  3  on s.dept_code(+)=d.dept_code;
+on s.dept_code(+)=d.dept_code
+*
+ERROR at line 3:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2    2  from staff_master s,department_master d
+  3    3  on s.dept_code(+)=d.dept_code;
+  2  from staff_master s,department_master d
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2    2  from staff_master s left outer join department_master d
+  3    3  on s.dept_code(+)=d.dept_code;
+  2  from staff_master s left outer join department_master d
+  *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select s.staff_code,s.dept_code,d.dept_name
+  2  from staff_master s left outer join  department_master d
+  3    on s.dept_code(+)=d.dept_code;
+  on s.dept_code(+)=d.dept_code
+       *
+ERROR at line 3:
+ORA-01705: an outer join cannot be specified on a correlation column
+
+
+SQL> select sal from emp where sal>"BLAKE";
+select sal from emp where sal>"BLAKE"
+                              *
+ERROR at line 1:
+ORA-00904: "BLAKE": invalid identifier
+
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+14 rows selected.
+
+SQL> select ename from emp where sal> (select sal from emp where enmae="BLAKE");
+select ename from emp where sal> (select sal from emp where enmae="BLAKE")
+                                                                  *
+ERROR at line 1:
+ORA-00904: "BLAKE": invalid identifier
+
+
+SQL>  select ename from emp where sal> (select sal from emp where enmae='BLAKE');
+ select ename from emp where sal> (select sal from emp where enmae='BLAKE')
+                                                             *
+ERROR at line 1:
+ORA-00904: "ENMAE": invalid identifier
+
+
+SQL>  select ename from emp where sal> (select sal from emp where ename='BLAKE');
+
+ENAME
+----------
+JONES
+SCOTT
+KING
+FORD
+
+SQL> select ename,sal,mgr where mgr like 'JONES';
+select ename,sal,mgr where mgr like 'JONES'
+                     *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select ename,sal,mgr from emp where mgr like 'JONES';
+
+no rows selected
+
+SQL> select ename,sal,mgr from emp where mgr =(select mgr from emp where ename= 'JONES');
+
+ENAME             SAL        MGR
+---------- ---------- ----------
+JONES            2975       7839
+BLAKE            2850       7839
+CLARK            2450       7839
+
+SQL> select dept_code from department_master
+  2  select dept_code from department_master;
+select dept_code from department_master
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select student_name from student_master
+  2  select student_name from student_master ;
+select student_name from student_master
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics')
+  2  select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics')
+*
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1005 Arvind                                                     40
+15-JAN-83
+Bangalore
+
+        1010 Rajat                                                      40
+20-JAN-80
+Bangalore
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1015 Kapil                                                      40
+18-MAR-81
+Mumbai
+
+        1016 Ashok                                                      40
+26-NOV-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+
+SQL> select student_name from student_master where dept_code=(select dept_code from department_master where dept_name='Mechanics');
+
+STUDENT_NAME
+--------------------------------------------------
+Arvind
+Rajat
+Kapil
+Ashok
+
+SQL> select * from emp where mgr= (select ename from emp where ename=7844);
+select * from emp where mgr= (select ename from emp where ename=7844)
+                                                          *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> select * from emp where mgr= (select mgr from emp where empo=7844);
+select * from emp where mgr= (select mgr from emp where empo=7844)
+                                                        *
+ERROR at line 1:
+ORA-00904: "EMPO": invalid identifier
+
+
+SQL> select * from emp where mgr= (select mgr from emp where empno=7844);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+SQL> select ename,mgr from emp where deptno=30;
+
+ENAME             MGR
+---------- ----------
+ALLEN            7698
+WARD             7698
+MARTIN           7698
+BLAKE            7839
+TURNER           7698
+JAMES            7698
+
+6 rows selected.
+
+SQL> select * from emp where empno=7934 and empno=7788 and empno=7654;
+
+no rows selected
+
+SQL> desc empno;
+ERROR:
+ORA-04043: object empno does not exist
+
+
+SQL> desc empno from emp;
+Usage: DESCRIBE [schema.]object[@db_link]
+SQL> select empno from emp;
+
+     EMPNO
+----------
+      7369
+      7499
+      7521
+      7566
+      7654
+      7698
+      7782
+      7788
+      7839
+      7844
+      7876
+
+     EMPNO
+----------
+      7900
+      7902
+      7934
+
+14 rows selected.
+
+SQL> select ename,sal from emp where empno=7934 and empno=7788 and empno=7654;
+
+no rows selected
+
+SQL> select ename,sal from emp where empno=7654;
+
+ENAME             SAL
+---------- ----------
+MARTIN           1250
+
+SQL> select ename,sal from emp where empno=7934 or empno=7788 or empno=7654;
+
+ENAME             SAL
+---------- ----------
+MARTIN           1250
+SCOTT            3000
+MILLER           1300
+
+SQL> spool 2.sql
+SQL> select student_name,student_dob from student_master where
+  2
+SQL> select * from emp where deptno in(select deptno from emp where empno in(7934,7788,7654));
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+14 rows selected.
+
+SQL> select ename,sal from emp where deptno in(select deptno from emp where empno in(7934,7788,7654));
+
+ENAME             SAL
+---------- ----------
+JAMES             950
+TURNER           1500
+BLAKE            2850
+MARTIN           1250
+WARD             1250
+ALLEN            1600
+FORD             3000
+ADAMS            1100
+SCOTT            3000
+JONES            2975
+SMITH             800
+
+ENAME             SAL
+---------- ----------
+MILLER           1300
+KING             5000
+CLARK            2450
+
+14 rows selected.
+
+SQL> desc staff_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STAFF_CODE                                NOT NULL NUMBER(8)
+ STAFF_NAME                                NOT NULL VARCHAR2(50)
+ DESIGN_CODE                                        NUMBER(3)
+ DEPT_CODE                                          NUMBER(2)
+ STAFF_DOB                                          DATE
+ HIREDATE                                           DATE
+ MGR_CODE                                           NUMBER(8)
+ STAFF_SAL                                          NUMBER(10,2)
+ STAFF_ADDRESS                                      VARCHAR2(240)
+
+SQL> desc student_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_CODE                              NOT NULL NUMBER(6)
+ STUDENT_NAME                              NOT NULL VARCHAR2(50)
+ DEPT_CODE                                          NUMBER(2)
+ STUDENT_DOB                                        DATE
+ STUDENT_ADDRESS                                    VARCHAR2(240)
+
+SQL> select staff_code,staff_name,satff_sal
+  2  from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4  group by dept_code;
+group by dept_code
+                 *
+ERROR at line 4:
+ORA-00907: missing right parenthesis
+
+
+SQL> select staff_code,staff_name,satff_sal
+  2  from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4  group by dept_code);
+select staff_code,staff_name,satff_sal
+                             *
+ERROR at line 1:
+ORA-00904: "SATFF_SAL": invalid identifier
+
+
+SQL> select staff_code,staff_name,satff_sal
+  2  from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4  group by dept_code);
+select staff_code,staff_name,satff_sal
+                             *
+ERROR at line 1:
+ORA-00904: "SATFF_SAL": invalid identifier
+
+
+SQL> select staff_code,staff_name,staff_sal
+  2  where staff_sal>any(select max(staff_sal) from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4
+SQL> select staff_code,staff_name,satff_sal
+  2  from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4  group by dept_code);
+select staff_code,staff_name,satff_sal
+                             *
+ERROR at line 1:
+ORA-00904: "SATFF_SAL": invalid identifier
+
+
+SQL> select staff_code,staff_name,staff_sal
+  2  from staff_master
+  3  where staff_sal>any(select max(staff_sal) from staff_master
+  4  group by dept_code);
+
+STAFF_CODE STAFF_NAME                                          STAFF_SAL
+---------- -------------------------------------------------- ----------
+    100007 Smith                                                   62000
+    100006 Allen                                                   42000
+    100005 John                                                    32000
+    100010 Ram                                                     32000
+    100003 Mohan                                                   24000
+    100009 Rahul                                                   22000
+    100002 Shyam                                                   20000
+    100004 Anil                                                    20000
+
+8 rows selected.
+
+SQL> create table
+  2  dml
+  3
+SQL> creat table test_stud(stud_id number,stud_name varchar2(20),sal number(8,2),deptno number);_
+SP2-0734: unknown command beginning "creat tabl..." - rest of line ignored.
+SQL> create table test_stud(stud_id number,stud_name varchar2(20),sal number(8,2),deptno number);_
+  2  create table test_stud(stud_id number,stud_name varchar2(20),sal number(8,2),deptno number);
+create table test_stud(stud_id number,stud_name varchar2(20),sal number(8,2),deptno number);_
+                                                                                           *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> create table test_stud(stud_id number,stud_name varchar2(20),sal number(8,2),deptno number);
+
+Table created.
+
+SQL> desc test_stud;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_ID                                            NUMBER
+ STUD_NAME                                          VARCHAR2(20)
+ SAL                                                NUMBER(8,2)
+ DEPTNO                                             NUMBER
+
+SQL> select count(*) from test_stud;
+
+  COUNT(*)
+----------
+         0
+
+SQL> insert into test_stud(stud_id,stud_name,sal,deptno);
+insert into test_stud(stud_id,stud_name,sal,deptno)
+                                                  *
+ERROR at line 1:
+ORA-00926: missing VALUES keyword
+
+
+SQL> insert into test_stud(stud_id,stud_name,sal,deptno)values(170,'Vimal',250000.00,10);
+
+1 row created.
+
+SQL> select * from test_stud;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    250000         10
+
+SQL> insert into test_stud values(171,'Chandar',550000.00,10);
+
+1 row created.
+
+SQL> select * from test_stud;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    250000         10
+       171 Chandar                  550000         10
+
+SQL> update test_stud set sal=300000 where stud_id=170;
+
+1 row updated.
+
+SQL> create table test_dept(deptno number,dept_name varchar2(20));
+
+Table created.
+
+SQL> select * from test_stud;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    300000         10
+       171 Chandar                  550000         10
+
+SQL> update test_stud set deptno=30 where stud_id=171;
+
+1 row updated.
+
+SQL> select * from tets_stud;
+select * from tets_stud
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from test_stud;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    300000         10
+       171 Chandar                  550000         30
+
+SQL> commit
+  2
+SQL> commit;
+
+Commit complete.
+
+SQL> drop table stud_table;
+drop table stud_table
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table test_table;
+drop table test_table
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> drop table test_stud;
+
+Table dropped.
+
+SQL> flashback table test_table to before drop;
+flashback table test_table to before drop
+*
+ERROR at line 1:
+ORA-38305: object not in RECYCLE BIN
+
+
+SQL> flashback table test_stud to before drop;
+
+Flashback complete.
+
+SQL> select * from test_stud;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    300000         10
+       171 Chandar                  550000         30
+
+SQL> create table emp_test(enum number,mgrid number default 150);
+
+Table created.
+
+SQL> insert into emp_test values(101,default);
+
+1 row created.
+
+SQL> insert into emp_test values(102,default);
+
+1 row created.
+
+SQL> insert into emp_test values(103,default);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from emp_test;
+
+      ENUM      MGRID
+---------- ----------
+       101        150
+       102        150
+       103        150
+
+SQL> insert into emp_test values(103,100);
+
+1 row created.
+
+SQL> commit
+  2  commit;
+commit
+*
+ERROR at line 2:
+ORA-02185: a token other than WORK follows COMMIT
+
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from emp_test;
+
+      ENUM      MGRID
+---------- ----------
+       101        150
+       102        150
+       103        150
+       103        100
+
+SQL> create table test_stud123 as select * from test_stud;
+
+Table created.
+
+SQL> select * from test_stud123;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    300000         10
+       171 Chandar                  550000         30
+
+SQL> create table test_stud234 as select * from test_stud where 1=2;
+
+Table created.
+
+SQL> select * from test_stud234;
+
+no rows selected
+
+SQL> desc test_stud234;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_ID                                            NUMBER
+ STUD_NAME                                          VARCHAR2(20)
+ SAL                                                NUMBER(8,2)
+ DEPTNO                                             NUMBER
+
+SQL> insert into test_stud234 select * from test_stud;
+
+2 rows created.
+
+SQL> select * from test_stud234;
+
+   STUD_ID STUD_NAME                   SAL     DEPTNO
+---------- -------------------- ---------- ----------
+       170 Vimal                    300000         10
+       171 Chandar                  550000         30
+
+SQL> commit;
+
+Commit complete.
+
+SQL> insert into test_stud234 values(&id,'&name',&sal,&depno);
+Enter value for id: 172
+Enter value for name: Kumar
+Enter value for sal: 100000
+Enter value for depno: 40
+old   1: insert into test_stud234 values(&id,'&name',&sal,&depno)
+new   1: insert into test_stud234 values(172,'Kumar',100000,40)
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> update staff_master set satff_sal=(select staff_sal from staff_master where staff_code=100006) where staff_name='Anil';
+update staff_master set satff_sal=(select staff_sal from staff_master where staff_code=100006) where staff_name='Anil'
+                        *
+ERROR at line 1:
+ORA-00904: "SATFF_SAL": invalid identifier
+
+
+SQL> update staff_master set staff_sal=(select staff_sal from staff_master where staff_code=100006) where staff_name='Anil';
+
+1 row updated.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> desc staff_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STAFF_CODE                                NOT NULL NUMBER(8)
+ STAFF_NAME                                NOT NULL VARCHAR2(50)
+ DESIGN_CODE                                        NUMBER(3)
+ DEPT_CODE                                          NUMBER(2)
+ STAFF_DOB                                          DATE
+ HIREDATE                                           DATE
+ MGR_CODE                                           NUMBER(8)
+ STAFF_SAL                                          NUMBER(10,2)
+ STAFF_ADDRESS                                      VARCHAR2(240)
+
+SQL> select staff_sal from staff_master;
+
+ STAFF_SAL
+----------
+     17000
+     20000
+     24000
+     42000
+     32000
+     42000
+     62000
+     18000
+     22000
+     32000
+
+10 rows selected.
+
+SQL> truncate table test_stud234;
+
+Table truncated.
+
+SQL> desc test_stud234;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUD_ID                                            NUMBER
+ STUD_NAME                                          VARCHAR2(20)
+ SAL                                                NUMBER(8,2)
+ DEPTNO                                             NUMBER
+
+SQL> create table emp123(empno number primary key,name varchar2(20)not null);
+
+Table created.
+
+SQL> insert into emp123(101,'raj');
+insert into emp123(101,'raj')
+                   *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> insert into emp123 values(101,'raj');
+
+1 row created.
+
+SQL>
+
+
+
+
+
+
+

@@ -1,0 +1,2464 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mon Jan 28 12:11:53 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect Trg428/training428@//10.219.34.3:1521/orcl
+Connected.
+SQL> C:\Users\VIMALCM\Downloads\HR_30.sql
+SP2-0024: Nothing to change.
+SQL> @C:\Users\VIMALCM\Downloads\HR_30.sql
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Index created.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+Table altered.
+
+
+View created.
+
+
+Sequence created.
+
+
+Sequence created.
+
+
+Sequence created.
+
+
+Warning: Trigger created with compilation errors.
+
+
+Warning: Trigger created with compilation errors.
+
+
+Procedure created.
+
+
+Procedure created.
+
+SQL> select * from employees
+  2
+SQL> select * from employees;
+
+no rows selected
+
+SQL> Designation Master
+SP2-0734: unknown command beginning "Designatio..." - rest of line ignored.
+SQL> CREATE TABLE designation_master(
+  2  Design_Code NUMBER(3) PRIMARY KEY,
+  3  Design_Name VARCHAR2(50) UNIQUE);
+
+Table created.
+
+SQL> INSERT INTO designation_master VALUES(101,'HOD');
+
+1 row created.
+
+SQL> INSERT INTO designation_master VALUES(102,'Professor');
+
+1 row created.
+
+SQL> INSERT INTO designation_master VALUES(103,'Reader');
+
+1 row created.
+
+SQL> INSERT INTO designation_master VALUES(104,'Sr.Lecturer');
+
+1 row created.
+
+SQL> INSERT INTO designation_master VALUES(105,'Lecturer');
+
+1 row created.
+
+SQL> INSERT INTO designation_master VALUES(106,'Director');
+
+1 row created.
+
+SQL>
+SQL> Department Master
+SP2-0734: unknown command beginning "Department..." - rest of line ignored.
+SQL> CREATE TABLE department_master(
+  2  Dept_code NUMBER(2) PRIMARY KEY,
+  3  Dept_Name VARCHAR2(50) UNIQUE);
+
+Table created.
+
+SQL> INSERT INTO department_master VALUES(10,'Computer Science');
+
+1 row created.
+
+SQL> INSERT INTO department_master VALUES(20,'Electricals');
+
+1 row created.
+
+SQL> INSERT INTO department_master VALUES(30,'Electronics');
+
+1 row created.
+
+SQL> INSERT INTO department_master VALUES(40,'Mechanics');
+
+1 row created.
+
+SQL> INSERT INTO department_master VALUES(50,'Robotics');
+
+1 row created.
+
+SQL>
+SQL> Student Master
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE student_master(
+  2  Student_Code NUMBER(6) PRIMARY KEY,
+  3  Student_Name VARCHAR2(50) NOT NULL,
+  4  Dept_Code NUMBER(2) REFERENCES department_master(dept_code),
+  5  Student_Dob DATE,
+  6  Student_Address VARCHAR2(240));
+
+Table created.
+
+SQL>
+SQL> INSERT INTO student_master VALUES(1001,'Amit',10,'11-Jan-80','chennai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1002,'Ravi',10,'1-Nov-81','New Delhi');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1003,'Ajay',20,'13-Jan-82',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1004,'Raj',30,'14-Jan-79','Mumbai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1005,'Arvind',40,'15-Jan-83','Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1006,'Rahul',50,'16-Jan-81','Delhi');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1007,'Mehul',20,'17-Jan-82','Chennai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1008,'Dev',10,'11-Mar-81','Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1009,'Vijay',30,'19-Jan-80','Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1010,'Rajat',40,'20-Jan-80','Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1011,'Sunder',50,'21-Jan-80','Chennai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1012,'Rajesh', 30,'22-Jan-80',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1013,'Anil',20,'23-Jan-80','Chennai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1014,'Sunil',10,'15-Feb-85',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1015,'Kapil',40,'18-Mar-81','Mumbai');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1016,'Ashok',40,'26-Nov-80',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1017,'Ramesh',30,'27-Dec-80',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1018,'Amit Raj',50,'28-Sep-80','New Delhi');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1019,'Ravi Raj',50,'29-May-81','New Delhi');
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1020,'Amrit',10,'11-Nov-80',null);
+
+1 row created.
+
+SQL> INSERT INTO student_master VALUES(1021,'Sumit',20,'1-Jan-80','Chennai');
+
+1 row created.
+
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> Student Marks
+SP2-0734: unknown command beginning "Student Ma..." - rest of line ignored.
+SQL> CREATE TABLE Student_Marks(
+  2  Student_Code NUMBER (6) REFERENCES student_master(student_code),
+  3  Student_Year NUMBER not null,
+  4  Subject1 NUMBER (3),
+  5  Subject2 NUMBER (3),
+  6  Subject3 NUMBER (3));
+
+Table created.
+
+SQL> INSERT INTO student_marks VALUES(1001,2010,55,45,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1002,2010,66,74,88);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1003,2010,87,54,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1004,2010,65,64,90);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1005,2010,78,88,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1006,2010,65,86,54);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1007,2010,67,79,49);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1008,2010,72,55,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1009,2010,71,59,58);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1010,2010,68,44,92);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1011,2010,89,96,78);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1012,2010,78,56,55);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1013,2010,75,58,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1014,2010,73,74,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1015,2010,66,45,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1016,2010,68,78,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1017,2010,69,44,52);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1018,2010,65,78,56);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1019,2010,78,58,74);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1020,2010,45,55,65);
+
+1 row created.
+
+SQL> INSERT INTO student_marks VALUES(1021,2010,78,79,78);
+
+1 row created.
+
+SQL>
+SQL> Data to be repeated for 2 more years
+SP2-0734: unknown command beginning "Data to be..." - rest of line ignored.
+SQL>
+SQL> Staff Master
+SP2-0734: unknown command beginning "Staff Mast..." - rest of line ignored.
+SQL> CREATE TABLE staff_master(
+  2  Staff_Code number(8) PRIMARY KEY,
+  3  Staff_Name varchar2(50) NOT NULL,
+  4  Design_Code REFERENCES designation_master(design_code),
+  5  Dept_Code references department_master(dept_code),
+  6  Staff_dob DATE,
+  7  Hiredate DATE,
+  8  Mgr_code NUMBER(8),
+  9  Staff_sal NUMBER (10,2),
+ 10  Staff_address VARCHAR2(240));
+
+Table created.
+
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100001,'Arvind',102,30,'15-Jan-80','15-Jan-03',100006,17000,'Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100002,'Shyam',102,20,'18-Feb-80','17-Feb-02',100007,20000, 'Chennai');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100003,'Mohan',102,10,'23-Mar-80','19-Jan-02',100006,24000,'Mumbai');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100004,'Anil',102,20,'22-Apr-77','11-Mar-01',100006,20000,'Hyderabad');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100005,'John',106,10,'22-May-76','21-Jan-01',100007,32000,'Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100006,'Allen',103,30,'22-Jan-80','23-Apr-01',100005,42000,'Chennai');
+
+1 row created.
+
+SQL>
+SQL>
+SQL> INSERT INTO staff_master
+  2  VALUES(100007,'Smith',103,20,'19-Jul-73','12-Mar-02',100005,62000,'Mumbai');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100008,'Raviraj',102,40,'17-Jun-80','11-Jan-03',100006,18000,'Bangalore');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100009,'Rahul',102,20,'16-Jan-78','11-Dec-03',100006,22000,'Hyderabad');
+
+1 row created.
+
+SQL> INSERT INTO staff_master
+  2  VALUES(100010,'Ram',103,30,'17-Jan-79','17-Jan-02',100007,32000,'Bangalore');
+
+1 row created.
+
+SQL>
+SQL> Book Master
+SP2-0734: unknown command beginning "Book Maste..." - rest of line ignored.
+SQL> CREATE TABLE book_master(
+  2  Book_code NUMBER(10) PRIMARY KEY,
+  3  Book_name VARCHAR2(50) NOT NULL,
+  4  Book_pub_year NUMBER,
+  5  Book_pub_author VARCHAR2 (50) NOT NULL);
+
+Table created.
+
+SQL>
+SQL>
+SQL> INSERT INTO book_master VALUES(10000001,'Let Us C++',2000, 'Yashavant Kanetkar');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000002,'Mastering VC++',2005,'P.J Allen');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000003,'JAVA Complete Reference',2004,'H.Schild');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000004,'J2EE Complete Reference',2000,'H. Schild');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000005,'Relational DBMS',2000,'B.C. Desai');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000006,'Let Us C',2000, 'Yashavant Kanetkar');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000007,'Intoduction To Algorithams',2001,'Cormen');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000008,'Computer Networks',2000,'Tanenbaum');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_master VALUES(10000009,'Introduction to O/S',2001,'Millan');
+
+1 row created.
+
+SQL>
+SQL> Book Transaction
+SP2-0734: unknown command beginning "Book Trans..." - rest of line ignored.
+SQL> CREATE TABLE book_transaction(
+  2  Book_code NUMBER(10) REFERENCES book_master(Book_code),
+  3  Student_code NUMBER(6) REFERENCES student_master(student_code),
+  4  Staff_code number(8) REFERENCES staff_master(staff_code),
+  5  Book_issue_Date date not null,
+  6  Book_expected_return_date date not null,
+  7  Book_actual_return_date date);
+
+Table created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000006,1012,NULL,'02-Feb-2011','09-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000008,NULL,100006,'10-Mar-2011','17-Mar-2011','15-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000009,NULL,100010,'01-Apr-2011','08-Apr-2011','10-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000004,1015,NULL,'12-Feb-2011','19-Feb-2011',NULL);
+
+1 row created.
+
+SQL>
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000005,NULL,100007,'14-Mar-2011','21-Mar-2011','21-Mar-2011');
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO book_transaction
+  2  VALUES(10000007,NULL,100007,'01-Apr-2011','07-Apr-2011','06-Apr-2011');
+
+1 row created.
+
+SQL>
+SQL> desc student_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_CODE                              NOT NULL NUMBER(6)
+ STUDENT_NAME                              NOT NULL VARCHAR2(50)
+ DEPT_CODE                                          NUMBER(2)
+ STUDENT_DOB                                        DATE
+ STUDENT_ADDRESS                                    VARCHAR2(240)
+
+SQL> select student_code,department;
+select student_code,department
+                             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select student_code,student_name from student_master;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1001 Amit
+        1002 Ravi
+        1003 Ajay
+        1004 Raj
+        1005 Arvind
+        1006 Rahul
+        1007 Mehul
+        1008 Dev
+        1009 Vijay
+        1010 Rajat
+        1011 Sunder
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1012 Rajesh
+        1013 Anil
+        1014 Sunil
+        1015 Kapil
+        1016 Ashok
+        1017 Ramesh
+        1018 Amit Raj
+        1019 Ravi Raj
+        1020 Amrit
+        1021 Sumit
+
+21 rows selected.
+
+SQL> select student_name,student_address from student_master;
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Amit
+chennai
+
+Ravi
+New Delhi
+
+Ajay
+
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Raj
+Mumbai
+
+Arvind
+Bangalore
+
+Rahul
+Delhi
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Mehul
+Chennai
+
+Dev
+Bangalore
+
+Vijay
+Bangalore
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Rajat
+Bangalore
+
+Sunder
+Chennai
+
+Rajesh
+
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Anil
+Chennai
+
+Sunil
+
+
+Kapil
+Mumbai
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Ashok
+
+
+Ramesh
+
+
+Amit Raj
+New Delhi
+
+
+STUDENT_NAME
+--------------------------------------------------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Ravi Raj
+New Delhi
+
+Amrit
+
+
+Sumit
+Chennai
+
+
+21 rows selected.
+
+SQL> select department_code from student_master;
+select department_code from student_master
+       *
+ERROR at line 1:
+ORA-00904: "DEPARTMENT_CODE": invalid identifier
+
+
+SQL> select student_code from student_master;
+
+STUDENT_CODE
+------------
+        1001
+        1002
+        1003
+        1004
+        1005
+        1006
+        1007
+        1008
+        1009
+        1010
+        1011
+
+STUDENT_CODE
+------------
+        1012
+        1013
+        1014
+        1015
+        1016
+        1017
+        1018
+        1019
+        1020
+        1021
+
+21 rows selected.
+
+SQL> select * from department50;
+select * from department50
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from student_master where department_code=50;
+select * from student_master where department_code=50
+                                   *
+ERROR at line 1:
+ORA-00904: "DEPARTMENT_CODE": invalid identifier
+
+
+SQL> desc student_master;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_CODE                              NOT NULL NUMBER(6)
+ STUDENT_NAME                              NOT NULL VARCHAR2(50)
+ DEPT_CODE                                          NUMBER(2)
+ STUDENT_DOB                                        DATE
+ STUDENT_ADDRESS                                    VARCHAR2(240)
+
+SQL>  select * from student_master where dept_code=50;
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1006 Rahul                                                      50
+16-JAN-81
+Delhi
+
+        1011 Sunder                                                     50
+21-JAN-80
+Chennai
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1018 Amit Raj                                                   50
+28-SEP-80
+New Delhi
+
+        1019 Ravi Raj                                                   50
+29-MAY-81
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+New Delhi
+
+
+SQL> select student_dob from student_master where student_name=ashok;
+select student_dob from student_master where student_name=ashok
+                                                          *
+ERROR at line 1:
+ORA-00904: "ASHOK": invalid identifier
+
+
+SQL> select student_dob from student_master where student_name='ashok';
+
+no rows selected
+
+SQL> select student_dob from student_master where student_name='Ashok';
+
+STUDENT_D
+---------
+26-NOV-80
+
+SQL> select student_code from student_master where student_dob=20-Jan-80;
+select student_code from student_master where student_dob=20-Jan-80
+                                                             *
+ERROR at line 1:
+ORA-00904: "JAN": invalid identifier
+
+
+SQL> select student_code from student_master where student_dob='20-Jan-80';
+
+STUDENT_CODE
+------------
+        1010
+
+SQL> select * from student_master where dept_code=40;
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1005 Arvind                                                     40
+15-JAN-83
+Bangalore
+
+        1010 Rajat                                                      40
+20-JAN-80
+Bangalore
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1015 Kapil                                                      40
+18-MAR-81
+Mumbai
+
+        1016 Ashok                                                      40
+26-NOV-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+
+
+SQL>  select * from student_master where dept_code=30,40,50;
+ select * from student_master where dept_code=30,40,50
+                                                *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from student_master where dept_code=30,dept_code=40,dept_code=50;
+select * from student_master where dept_code=30,dept_code=40,dept_code=50
+                                               *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select student_name from student_master where dept_code=30 or dept_code=40 or dept_code=50;
+
+STUDENT_NAME
+--------------------------------------------------
+Raj
+Arvind
+Rahul
+Vijay
+Rajat
+Sunder
+Rajesh
+Kapil
+Ashok
+Ramesh
+Amit Raj
+
+STUDENT_NAME
+--------------------------------------------------
+Ravi Raj
+
+12 rows selected.
+
+SQL> select student_name from student_master where dept_code in (30,40,50);
+
+STUDENT_NAME
+--------------------------------------------------
+Raj
+Arvind
+Rahul
+Vijay
+Rajat
+Sunder
+Rajesh
+Kapil
+Ashok
+Ramesh
+Amit Raj
+
+STUDENT_NAME
+--------------------------------------------------
+Ravi Raj
+
+12 rows selected.
+
+SQL> select student_name from student_master where dept_code>=30 and dept_code<=50;
+
+STUDENT_NAME
+--------------------------------------------------
+Raj
+Arvind
+Rahul
+Vijay
+Rajat
+Sunder
+Rajesh
+Kapil
+Ashok
+Ramesh
+Amit Raj
+
+STUDENT_NAME
+--------------------------------------------------
+Ravi Raj
+
+12 rows selected.
+
+SQL> select student_code as stu from student_master;
+
+       STU
+----------
+      1001
+      1002
+      1003
+      1004
+      1005
+      1006
+      1007
+      1008
+      1009
+      1010
+      1011
+
+       STU
+----------
+      1012
+      1013
+      1014
+      1015
+      1016
+      1017
+      1018
+      1019
+      1020
+      1021
+
+21 rows selected.
+
+SQL>  select student_code as stuid from student_master;
+
+     STUID
+----------
+      1001
+      1002
+      1003
+      1004
+      1005
+      1006
+      1007
+      1008
+      1009
+      1010
+      1011
+
+     STUID
+----------
+      1012
+      1013
+      1014
+      1015
+      1016
+      1017
+      1018
+      1019
+      1020
+      1021
+
+21 rows selected.
+
+SQL> select student_code id,student_ name,,,,,student_dob
+  2
+SQL> dept_mastertablr;
+SP2-0734: unknown command beginning "dept_maste..." - rest of line ignored.
+SQL> select dept_number dept_master where dept='ece' ;
+select dept_number dept_master where dept='ece'
+                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL>  select dept_code id,student_namestudent_dob
+  2
+SQL> select student_code,dept_code from student_master;
+
+STUDENT_CODE  DEPT_CODE
+------------ ----------
+        1001         10
+        1002         10
+        1003         20
+        1004         30
+        1005         40
+        1006         50
+        1007         20
+        1008         10
+        1009         30
+        1010         40
+        1011         50
+
+STUDENT_CODE  DEPT_CODE
+------------ ----------
+        1012         30
+        1013         20
+        1014         10
+        1015         40
+        1016         40
+        1017         30
+        1018         50
+        1019         50
+        1020         10
+        1021         20
+
+21 rows selected.
+
+SQL> select distinct dept_code from student_code;
+select distinct dept_code from student_code
+                               *
+ERROR at line 1:
+ORA-00980: synonym translation is no longer valid
+
+
+SQL>  select distinct dept_code from student_master;
+
+ DEPT_CODE
+----------
+        30
+        20
+        40
+        50
+        10
+
+SQL>  select distinct dept_code ,student_code from student_master;
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        10         1001
+        10         1002
+        20         1003
+        30         1004
+        40         1005
+        50         1006
+        20         1007
+        10         1008
+        30         1009
+        40         1010
+        50         1011
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        30         1012
+        20         1013
+        10         1014
+        40         1015
+        40         1016
+        30         1017
+        50         1018
+        50         1019
+        10         1020
+        20         1021
+
+21 rows selected.
+
+SQL> select distinct dept_code ,student_code from student_master orderby student_code;
+select distinct dept_code ,student_code from student_master orderby student_code
+                                                                    *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select distinct dept_code ,student_code from student_master order by student_code;
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        10         1001
+        10         1002
+        20         1003
+        30         1004
+        40         1005
+        50         1006
+        20         1007
+        10         1008
+        30         1009
+        40         1010
+        50         1011
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        30         1012
+        20         1013
+        10         1014
+        40         1015
+        40         1016
+        30         1017
+        50         1018
+        50         1019
+        10         1020
+        20         1021
+
+21 rows selected.
+
+SQL> select distinct dept_code ,student_code from student_master order by dept_code,student_code
+  2
+SQL> select distinct dept_code ,student_code from student_master order by dept_code,student_code;
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        10         1001
+        10         1002
+        10         1008
+        10         1014
+        10         1020
+        20         1003
+        20         1007
+        20         1013
+        20         1021
+        30         1004
+        30         1009
+
+ DEPT_CODE STUDENT_CODE
+---------- ------------
+        30         1012
+        30         1017
+        40         1005
+        40         1010
+        40         1015
+        40         1016
+        50         1006
+        50         1011
+        50         1018
+        50         1019
+
+21 rows selected.
+
+SQL> select student_name from student_master where student_name like 'S%';
+
+STUDENT_NAME
+--------------------------------------------------
+Sunder
+Sunil
+Sumit
+
+SQL> select student_name from student_master where student_name like 'S%';
+
+STUDENT_NAME
+--------------------------------------------------
+Sunder
+Sunil
+Sumit
+
+SQL> select student_name from student_master where student_name like '%r';
+
+STUDENT_NAME
+--------------------------------------------------
+Sunder
+
+SQL> select student_name||student_code from student_master;
+
+STUDENT_NAME||STUDENT_CODE
+--------------------------------------------------------------------------------
+Amit1001
+Ravi1002
+Ajay1003
+Raj1004
+Arvind1005
+Rahul1006
+Mehul1007
+Dev1008
+Vijay1009
+Rajat1010
+Sunder1011
+
+STUDENT_NAME||STUDENT_CODE
+--------------------------------------------------------------------------------
+Rajesh1012
+Anil1013
+Sunil1014
+Kapil1015
+Ashok1016
+Ramesh1017
+Amit Raj1018
+Ravi Raj1019
+Amrit1020
+Sumit1021
+
+21 rows selected.
+
+SQL> student_name "works for"dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL> student_name "works for" dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL> student_name , dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL> select student_name "works for"dept_code from student_master;
+select student_name "works for"dept_code from student_master
+                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL>  select student_name works for dept_code from student_master;
+ select student_name works for dept_code from student_master
+                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL>  select student_name ||works for dept_code from student_master;
+ select student_name ||works for dept_code from student_master
+                             *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select student_name ||works for|| dept_code from student_master;
+select student_name ||works for|| dept_code from student_master
+                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select student_name , dept_code from student_master;
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+Amit                                                       10
+Ravi                                                       10
+Ajay                                                       20
+Raj                                                        30
+Arvind                                                     40
+Rahul                                                      50
+Mehul                                                      20
+Dev                                                        10
+Vijay                                                      30
+Rajat                                                      40
+Sunder                                                     50
+
+STUDENT_NAME                                        DEPT_CODE
+-------------------------------------------------- ----------
+Rajesh                                                     30
+Anil                                                       20
+Sunil                                                      10
+Kapil                                                      40
+Ashok                                                      40
+Ramesh                                                     30
+Amit Raj                                                   50
+Ravi Raj                                                   50
+Amrit                                                      10
+Sumit                                                      20
+
+21 rows selected.
+
+SQL> select student_name |"works for"| dept_code from student_master;
+select student_name |"works for"| dept_code from student_master
+                    *
+ERROR at line 1:
+ORA-00996: the concatenate operator is ||, not |
+
+
+SQL> select student_name ||'works'||''||'for' dept_code from student_master;
+
+DEPT_CODE
+----------------------------------------------------------
+Amitworksfor
+Raviworksfor
+Ajayworksfor
+Rajworksfor
+Arvindworksfor
+Rahulworksfor
+Mehulworksfor
+Devworksfor
+Vijayworksfor
+Rajatworksfor
+Sunderworksfor
+
+DEPT_CODE
+----------------------------------------------------------
+Rajeshworksfor
+Anilworksfor
+Sunilworksfor
+Kapilworksfor
+Ashokworksfor
+Rameshworksfor
+Amit Rajworksfor
+Ravi Rajworksfor
+Amritworksfor
+Sumitworksfor
+
+21 rows selected.
+
+SQL> student_name ||'||'works'||''||'for'||''||dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL>  student_name ||''||'works'||''||'for'||''||dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL>  student_name '||'||'works'||''||'for'||''||dept_code from student_master;
+SP2-0734: unknown command beginning "student_na..." - rest of line ignored.
+SQL>
+SQL>
+SQL> select * from dual;
+
+D
+-
+X
+
+SQL> select 100*200 from dual;
+
+   100*200
+----------
+     20000
+
+SQL> select syadate from dual;
+select syadate from dual
+       *
+ERROR at line 1:
+ORA-00904: "SYADATE": invalid identifier
+
+
+SQL> select sysdate from dual;
+
+SYSDATE
+---------
+28-JAN-19
+
+SQL> select 12%3 from dual;
+select 12%3 from dual
+         *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select employee_id,salary*12 "Annual salary" from employee;
+select employee_id,salary*12 "Annual salary" from employee
+                                                  *
+ERROR at line 1:
+ORA-00980: synonym translation is no longer valid
+
+
+SQL>  select employee_id,salary*12 "Annual salary" from employees;
+
+no rows selected
+
+SQL> select * from student_master;
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1001 Amit                                                       10
+11-JAN-80
+chennai
+
+        1002 Ravi                                                       10
+01-NOV-81
+New Delhi
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1003 Ajay                                                       20
+13-JAN-82
+
+
+        1004 Raj                                                        30
+14-JAN-79
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Mumbai
+
+        1005 Arvind                                                     40
+15-JAN-83
+Bangalore
+
+        1006 Rahul                                                      50
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+16-JAN-81
+Delhi
+
+        1007 Mehul                                                      20
+17-JAN-82
+Chennai
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1008 Dev                                                        10
+11-MAR-81
+Bangalore
+
+        1009 Vijay                                                      30
+19-JAN-80
+Bangalore
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1010 Rajat                                                      40
+20-JAN-80
+Bangalore
+
+        1011 Sunder                                                     50
+21-JAN-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+Chennai
+
+        1012 Rajesh                                                     30
+22-JAN-80
+
+
+        1013 Anil                                                       20
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+23-JAN-80
+Chennai
+
+        1014 Sunil                                                      10
+15-FEB-85
+
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+        1015 Kapil                                                      40
+18-MAR-81
+Mumbai
+
+        1016 Ashok                                                      40
+26-NOV-80
+
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+
+        1017 Ramesh                                                     30
+27-DEC-80
+
+
+        1018 Amit Raj                                                   50
+28-SEP-80
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+New Delhi
+
+        1019 Ravi Raj                                                   50
+29-MAY-81
+New Delhi
+
+        1020 Amrit                                                      10
+
+STUDENT_CODE STUDENT_NAME                                        DEPT_CODE
+------------ -------------------------------------------------- ----------
+STUDENT_D
+---------
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+11-NOV-80
+
+
+        1021 Sumit                                                      20
+01-JAN-80
+Chennai
+
+
+21 rows selected.
+
+SQL> select student_code,student_name from student_master where dept_code=null;
+
+no rows selected
+
+SQL>  select student_code,student_name from student_master where dept_code is null;
+
+no rows selected
+
+SQL>  select student_code,student_name from student_master where student_address is null;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1003 Ajay
+        1012 Rajesh
+        1014 Sunil
+        1016 Ashok
+        1017 Ramesh
+        1020 Amrit
+
+6 rows selected.
+
+SQL>  select student_code,student_name from student_master where student_address is not null;
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1001 Amit
+        1002 Ravi
+        1004 Raj
+        1005 Arvind
+        1006 Rahul
+        1007 Mehul
+        1008 Dev
+        1009 Vijay
+        1010 Rajat
+        1011 Sunder
+        1013 Anil
+
+STUDENT_CODE STUDENT_NAME
+------------ --------------------------------------------------
+        1015 Kapil
+        1018 Amit Raj
+        1019 Ravi Raj
+        1021 Sumit
+
+15 rows selected.
+
+SQL>  select student_address,student_name from student_master where student_address is not null;
+
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+STUDENT_NAME
+--------------------------------------------------
+chennai
+Amit
+
+New Delhi
+Ravi
+
+Mumbai
+Raj
+
+
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+STUDENT_NAME
+--------------------------------------------------
+Bangalore
+Arvind
+
+Delhi
+Rahul
+
+Chennai
+Mehul
+
+
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+STUDENT_NAME
+--------------------------------------------------
+Bangalore
+Dev
+
+Bangalore
+Vijay
+
+Bangalore
+Rajat
+
+
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+STUDENT_NAME
+--------------------------------------------------
+Chennai
+Sunder
+
+Chennai
+Anil
+
+Mumbai
+Kapil
+
+
+STUDENT_ADDRESS
+--------------------------------------------------------------------------------
+STUDENT_NAME
+--------------------------------------------------
+New Delhi
+Amit Raj
+
+New Delhi
+Ravi Raj
+
+Chennai
+Sumit
+
+
+15 rows selected.
+
+SQL> select student_name from student_master order by desc;
+select student_name from student_master order by desc
+                                                 *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select student_name from student_master order by student_name desc;
+
+STUDENT_NAME
+--------------------------------------------------
+Vijay
+Sunil
+Sunder
+Sumit
+Ravi Raj
+Ravi
+Ramesh
+Rajesh
+Rajat
+Raj
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+Mehul
+Kapil
+Dev
+Ashok
+Arvind
+Anil
+Amrit
+Amit Raj
+Amit
+Ajay
+
+21 rows selected.
+
+SQL> select student_name from student_master order by student_name;;
+select student_name from student_master order by student_name;
+                                                             *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> select student_name from student_master order by student_name;
+
+STUDENT_NAME
+--------------------------------------------------
+Ajay
+Amit
+Amit Raj
+Amrit
+Anil
+Arvind
+Ashok
+Dev
+Kapil
+Mehul
+Rahul
+
+STUDENT_NAME
+--------------------------------------------------
+Raj
+Rajat
+Rajesh
+Ramesh
+Ravi
+Ravi Raj
+Sumit
+Sunder
+Sunil
+Vijay
+
+21 rows selected.
+
+SQL> select * from tab
+  2
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BOOK_MASTER                    TABLE
+BOOK_TRANSACTION               TABLE
+COUNTRIES                      TABLE
+DEPARTMENTS                    TABLE
+DEPARTMENT_MASTER              TABLE
+DESIGNATION_MASTER             TABLE
+EMPLOYEES                      TABLE
+EMP_DETAILS_VIEW               VIEW
+JOBS                           TABLE
+JOB_HISTORY                    TABLE
+LOCATIONS                      TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+REGIONS                        TABLE
+STAFF_MASTER                   TABLE
+STUDENT_MARKS                  TABLE
+STUDENT_MASTER                 TABLE
+
+15 rows selected.
+
+SQL> spool
+not spooling currently
+SQL> spool test.sql
+SQL> select student_name from student_master;
+
+STUDENT_NAME
+--------------------------------------------------
+Amit
+Ravi
+Ajay
+Raj
+Arvind
+Rahul
+Mehul
+Dev
+Vijay
+Rajat
+Sunder
+
+STUDENT_NAME
+--------------------------------------------------
+Rajesh
+Anil
+Sunil
+Kapil
+Ashok
+Ramesh
+Amit Raj
+Ravi Raj
+Amrit
+Sumit
+
+21 rows selected.
+
+SQL> spool off
+SQL> select * from staff_master;
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+    100001 Arvind                                                     102
+        30 15-JAN-80 15-JAN-03     100006      17000
+Bangalore
+
+    100002 Shyam                                                      102
+        20 18-FEB-80 17-FEB-02     100007      20000
+Chennai
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+
+    100003 Mohan                                                      102
+        10 23-MAR-80 19-JAN-02     100006      24000
+Mumbai
+
+    100004 Anil                                                       102
+        20 22-APR-77 11-MAR-01     100006      20000
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+Hyderabad
+
+    100005 John                                                       106
+        10 22-MAY-76 21-JAN-01     100007      32000
+Bangalore
+
+    100006 Allen                                                      103
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+        30 22-JAN-80 23-APR-01     100005      42000
+Chennai
+
+    100007 Smith                                                      103
+        20 19-JUL-73 12-MAR-02     100005      62000
+Mumbai
+
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+    100008 Raviraj                                                    102
+        40 17-JUN-80 11-JAN-03     100006      18000
+Bangalore
+
+    100009 Rahul                                                      102
+        20 16-JAN-78 11-DEC-03     100006      22000
+Hyderabad
+
+STAFF_CODE STAFF_NAME                                         DESIGN_CODE
+---------- -------------------------------------------------- -----------
+ DEPT_CODE STAFF_DOB HIREDATE    MGR_CODE  STAFF_SAL
+---------- --------- --------- ---------- ----------
+STAFF_ADDRESS
+--------------------------------------------------------------------------------
+
+    100010 Ram                                                        103
+        30 17-JAN-79 17-JAN-02     100007      32000
+Bangalore
+
+
+10 rows selected.
+
+SQL> spool 1a.sql
+SQL> select staff_name,design_code from staff_master where hiredate<"Jan 2003"as staff_sal >12000 and staff_sal<25000;
+select staff_name,design_code from staff_master where hiredate<"Jan 2003"as staff_sal >12000 and staff_sal<25000
+                                                                         *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> spool 1a.sql
+SQL> select staff_name,design_code from staff_master where hiredate<'Jan 2003'as staff_sal >12000 and staff_sal<25000;
+select staff_name,design_code from staff_master where hiredate<'Jan 2003'as staff_sal >12000 and staff_sal<25000
+                                                                         *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> spool 1a.sql
+SQL> select staff_name,design_code from staff_master where hiredate<'Jan 2003';
+select staff_name,design_code from staff_master where hiredate<'Jan 2003'
+                                                               *
+ERROR at line 1:
+ORA-01858: a non-numeric character was found where a numeric was expected
+
+
+SQL> select hiredate from staff_master;
+
+HIREDATE
+---------
+15-JAN-03
+17-FEB-02
+19-JAN-02
+11-MAR-01
+21-JAN-01
+23-APR-01
+12-MAR-02
+11-JAN-03
+11-DEC-03
+17-JAN-02
+
+10 rows selected.
+
+SQL> spool 1a.sql
+SQL>  select staff_name,design_code from staff_master where hiredate<'15-Jan-03'as staff_sal >12000 and staff_sal<25000;
+ select staff_name,design_code from staff_master where hiredate<'15-Jan-03'as staff_sal >12000 and staff_sal<25000
+                                                                           *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> spool 1a.sql
+SQL> select staff_name,design_code from staff_master where hiredate<'15-Jan-03';
+
+STAFF_NAME                                         DESIGN_CODE
+-------------------------------------------------- -----------
+Shyam                                                      102
+Mohan                                                      102
+Anil                                                       102
+John                                                       106
+Allen                                                      103
+Smith                                                      103
+Raviraj                                                    102
+Ram                                                        103
+
+8 rows selected.
+
+SQL> spool 1a.sql
+SQL> select staff_name,design_code from staff_master where hiredate<'15-Jan-03'and staff_sal >12000 and staff_sal<25000;
+
+STAFF_NAME                                         DESIGN_CODE
+-------------------------------------------------- -----------
+Shyam                                                      102
+Mohan                                                      102
+Anil                                                       102
+Raviraj                                                    102
+
+SQL> spool off
+SQL> spool 1b.sql
+SQL> select staff_name,staff_code,dept_code from staff_master where hiredate - sysdate>=18;
+
+no rows selected
+
+SQL> select staff_name,staff_code,dept_code from staff_master where (hiredate-sysdate) >=18;
+
+no rows selected
+
+SQL> select staff_name,staff_code,dept_code from staff_master where (sysdate-hiredate) >=18;
+
+STAFF_NAME                                         STAFF_CODE  DEPT_CODE
+-------------------------------------------------- ---------- ----------
+Arvind                                                 100001         30
+Shyam                                                  100002         20
+Mohan                                                  100003         10
+Anil                                                   100004         20
+John                                                   100005         10
+Allen                                                  100006         30
+Smith                                                  100007         20
+Raviraj                                                100008         40
+Rahul                                                  100009         20
+Ram                                                    100010         30
+
+10 rows selected.
+
+SQL> spool off
+SQL> spool 1c.sql
+SQL> select * from staff_master where mgr_code is null;
+
+no rows selected
+
+SQL> spool off
+SQL> spool 1d.sql
+SQL> select * from book_master where book_pub_year between 2001 and 2004 and book_name='&';
+
+no rows selected
+
+SQL> spool 1d.sql
+SQL>  select * from book_master where book_pub_year between 2001 and 2004 and book_name like '%&%' ;
+
+no rows selected
+
+SQL> spool off
+SQL> spool 1e.sql
+SQL> select staff_name from
+  2
+SQL> select upper('sql') from dual;
+
+UPP
+---
+SQL
+
+SQL> select upper(student_name) from student_master;
+
+UPPER(STUDENT_NAME)
+--------------------------------------------------
+AMIT
+RAVI
+AJAY
+RAJ
+ARVIND
+RAHUL
+MEHUL
+DEV
+VIJAY
+RAJAT
+SUNDER
+
+UPPER(STUDENT_NAME)
+--------------------------------------------------
+RAJESH
+ANIL
+SUNIL
+KAPIL
+ASHOK
+RAMESH
+AMIT RAJ
+RAVI RAJ
+AMRIT
+SUMIT
+
+21 rows selected.
+
+SQL>  select lower(student_name) from student_master;
+
+LOWER(STUDENT_NAME)
+--------------------------------------------------
+amit
+ravi
+ajay
+raj
+arvind
+rahul
+mehul
+dev
+vijay
+rajat
+sunder
+
+LOWER(STUDENT_NAME)
+--------------------------------------------------
+rajesh
+anil
+sunil
+kapil
+ashok
+ramesh
+amit raj
+ravi raj
+amrit
+sumit
+
+21 rows selected.
+
+SQL>  select upper(student_name) from student_master;
+
+UPPER(STUDENT_NAME)
+--------------------------------------------------
+AMIT
+RAVI
+AJAY
+RAJ
+ARVIND
+RAHUL
+MEHUL
+DEV
+VIJAY
+RAJAT
+SUNDER
+
+UPPER(STUDENT_NAME)
+--------------------------------------------------
+RAJESH
+ANIL
+SUNIL
+KAPIL
+ASHOK
+RAMESH
+AMIT RAJ
+RAVI RAJ
+AMRIT
+SUMIT
+
+21 rows selected.
+
+SQL> select length('sql') from dual;
+
+LENGTH('SQL')
+-------------
+            3
+
+SQL> select substr('vimal',1,3) from dual;
+
+SUB
+---
+vim
+
+SQL> select instr('vimal',1) from dual;
+
+INSTR('VIMAL',1)
+----------------
+               0
+
+SQL> select instr('vimal',l) from dual;
+select instr('vimal',l) from dual
+                     *
+ERROR at line 1:
+ORA-00904: "L": invalid identifier
+
+
+SQL> select instr('vimal','l') from dual;
+
+INSTR('VIMAL','L')
+------------------
+                 5
+
+SQL> select lpad(25,10,*) from dual;
+select lpad(25,10,*) from dual
+                  *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select lpad(25,10,'*') from dual;
+
+LPAD(25,10
+----------
+********25
+
+SQL>  select rpad(25,10,'*') from dual;
+
+RPAD(25,10
+----------
+25********
+
+SQL> select concat(student_code,dept_code) from student_master;
+
+CONCAT(STUDENT_CODE,DEPT_CODE)
+--------------------------------------------------------------------------------
+100110
+100210
+100320
+100430
+100540
+100650
+100720
+100810
+100930
+101040
+101150
+
+CONCAT(STUDENT_CODE,DEPT_CODE)
+--------------------------------------------------------------------------------
+101230
+101320
+101410
+101540
+101640
+101730
+101850
+101950
+102010
+102120
+
+21 rows selected.
+
+SQL> select replace('vimal','vimal','chandar') from dual;
+
+REPLACE
+-------
+chandar
+
+SQL> select trim('v'from 'vimal') from dual;
+
+TRIM
+----
+imal
+
+SQL> select round(45.259,2) from dual;
+
+ROUND(45.259,2)
+---------------
+          45.26
+
+SQL> select trunc(45.259) from dual;
+
+TRUNC(45.259)
+-------------
+           45
+
+SQL> select trunc(45.952) from dual;
+
+TRUNC(45.952)
+-------------
+           45
+
+SQL> select mod(1600,300) from dual;
+
+MOD(1600,300)
+-------------
+          100
+
+SQL> select mod(1600,300) from dual;
+
+MOD(1600,300)
+-------------
+          100
+
+SQL> select mod(1600,300) from dual;
+
+MOD(1600,300)
+-------------
+          100
+
+SQL>  select mod(16,4) from dual;
+
+ MOD(16,4)
+----------
+         0
+
+SQL> select current_timestamp from dual;
+
+CURRENT_TIMESTAMP
+---------------------------------------------------------------------------
+28-JAN-19 05.41.33.506000 PM +05:30
+
+SQL> months_between('19-Sep-97','19-Sep-18') from dual;
+SP2-0734: unknown command beginning "months_bet..." - rest of line ignored.
+SQL> select months_between('19-Sep-97','19-Sep-18') from dual;
+
+MONTHS_BETWEEN('19-SEP-97','19-SEP-18')
+---------------------------------------
+                                   -252
+
+SQL> select add_months('19-Sep-97',3) from dual;
+
+ADD_MONTH
+---------
+19-DEC-97
+
+SQL> select add_months('1-Sep-97',3) from dual;
+
+ADD_MONTH
+---------
+01-DEC-97
+
+SQL> select extract(year from sysdate) from dual;
+
+EXTRACT(YEARFROMSYSDATE)
+------------------------
+                    2019
+
+SQL> select extract(month from '28-Jan-19') from dual;
+select extract(month from '28-Jan-19') from dual
+                          *
+ERROR at line 1:
+ORA-30076: invalid extract field for extract source
+
+
+SQL> select extract(month from '19-Jan-28') from dual;
+select extract(month from '19-Jan-28') from dual
+                          *
+ERROR at line 1:
+ORA-30076: invalid extract field for extract source
+
+
+SQL>

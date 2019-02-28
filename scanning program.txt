@@ -1,0 +1,56 @@
+package javaproject;
+import java.util.*;
+public class ScannerclassExample {
+	
+	public static void main(String[] args){
+		String s = "Welcome to Java ";
+		//create scanner object amd pass string in it
+		Scanner scan = new Scanner(s);
+		//check if the scanner has a token 
+		
+		System.out.println("Boolean result " + scan.hasNext());
+		//print the string
+		System.out.println("String:" + scan.nextLine());
+		scan.close();
+		System.out.println("------Enter the details----------");
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter your name");
+		String name = in.next();
+		System.out.println("name:" + name);
+		System.out.println("Enter your age");
+		int i= in.nextInt();
+		System.out.println("Age: " + i);  
+		 System.out.print("Enter your salary: ");
+		 double d = in.nextDouble();
+		 System.out.println("Salary: " + d);         
+         in.close();           
+         }    
+		}
+
+
+
+package com.javafullstack.studentdetails;
+
+public class Studentdetails {
+String stuName;
+int stuId;
+static String collgName;
+public void clsDetails()
+{
+	System.out.println("Name is: "+stuName);
+	System.out.println("Id is: "+stuId);
+	System.out.println("College is: "+collgName);
+}
+	public static void main(String[] args) {
+		Studentdetails.collgName="SECE";
+		Studentdetails obj1=new Studentdetails();
+		obj1.stuName="Vimal";
+		obj1.stuId=170;
+		Studentdetails obj2=new Studentdetails();
+		obj2.stuName="Chandar";
+		obj2.stuId=171;
+		obj1.clsDetails();
+		obj2.clsDetails();
+		
+
+
